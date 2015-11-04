@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8"/>
+        <title>Dive Book - Home</title>
+        <meta name="description" content="The place Divers go to meet"/>
+        <meta name="author" content="up730418"/>
+        <link rel="stylesheet" href="main.css"/>
+        <script src="links.js"> </script> 
+        
+</head>
+    
+    
+<body>
+
+    <div id = "topbar">
+        
+        <!--<img src="logo.jpg" >-->
+        <input type="text" name="test" placeholder="Search">
+        <button id="topbtn" onclick="window.location='diveLogs.html';"> Logs</button>
+        <button id="topbtn" onclick="window.location='sites.html';"> Dive Sites</button>
+        <button id="topbtn" onclick="window.location='kit.html';"> Kit</button>
+        <button id="topbtn" onclick="window.location='home.html';"> Log Out</button>
+        
+        
+        
+    </div>
+    
+    
+    <div id="addKit">
+            
+
+        <form id="inputs">
+           <input type="text" name="image" placeholder="Image">
+            <input type="text" name="brand" placeholder="Brand">
+            <input type="text" name="model" placeholder="Model descrition">
+            <input type="text" name="item" placeholder="Type of item">
+            <input type="date" name="date" placeholder="Date Purchased">
+            
+            <input type="button" onclick="addDive()" value="Submit" >
+        </form>
+    </div>
+    
+    <div id="diveLogs">
+        
+        <h3> Dive Logs </h3>
+        
+        <table id="logTable">
+            <tr>
+                <th>Dive NO</th>
+                <th>Date</th>
+                <th>Depth</th>
+                <th>Time</th>
+                <th>Visibility</th> 
+                <th>PG</th>
+                <th>Location</th>
+                <th>Kit</th>
+                <th>Buddy</th>
+                <th>Description</th>
+                <th>Profile</th>
+            </tr>
+            <tr>
+                
+                <td>1</td>
+                <td>20.12.2015</td>
+                <td>20 Meters</td>
+                <td>20 Mins</td>
+                <td>4 Meters </td>
+                <td>N/A</td>
+                <td>Guildy</td>
+                <td>Mask </td>
+                <td>Jhon </td>
+                <td> Went for a bumble round the bus</td>
+                <td id="logImage"> <img src="logo.jpg"></td>
+            </tr>
+            
+        </table>
+        
+        
+        
+    </div>
+    
+    </body>
+</html>
