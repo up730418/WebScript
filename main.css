@@ -116,25 +116,24 @@ diva button{
 }
 
 #Kit{
-    border-style: solid;
+
     width: 80%;
     margin-left: 10%;
     
 }
 
-
+/**
 #Kit table, th, td{
     font-size: 1em;
     color: black;
     border-collapse:collapse;
     width: 10%;
     border: 1px solid #FF523B;
-    word-wrap: break-word;
     
 }
-
+*/
 #kitImage img{
-    height: 2em;
+    height: 3em;
 }
 
 #addKit{
@@ -148,7 +147,9 @@ diva button{
 #addKit input{
     border-radius: 1em;
     margin-left: 2em;
+    
 }
+
 
  div[id*=test]
 {
@@ -157,18 +158,45 @@ diva button{
 
 #diveLogs{
     align-content: center;
-    width: 100%;
+   /* width: 100%;
     border: 5px solid black;
+    */
+}
+
+#adddLogs input{
+    width: 5em;
+}
+#addLogs textarea{
+    margin-top: 2em;
     
 }
 
-#diveLogs table, td, th  {
+#diveLogs table {
     font-size: 1em;
-    color: brown;
-    border-collapse:collapse;
-    width: 10%;
-    border: 1px solid #FF523B;
-    word-wrap: break-word;
+    color: brown;  
+}
 
+#diveLogs td,th{
+    margin: 2%;
+    padding-top: 2%;
+    text-align: left;
+    width: 10%;
+    
+    
+    
+}
+
+#addLogs input{
+    
+    border-radius: 1em;
+    margin-left: 2em;
+    margin-top: 1em;
+    
+}
+
+#addLogs{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    
     
 }

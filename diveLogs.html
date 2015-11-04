@@ -28,17 +28,27 @@
     </div>
     
     
-    <div id="addKit">
+    <div id="addLogs">
             
 
         <form id="inputs">
-           <input type="text" name="image" placeholder="Image">
-            <input type="text" name="brand" placeholder="Brand">
-            <input type="text" name="model" placeholder="Model descrition">
-            <input type="text" name="item" placeholder="Type of item">
-            <input type="date" name="date" placeholder="Date Purchased">
+           <input type="text" name="depth" placeholder="Depth">
+            <input type="date" name="date" placeholder="Date">
+            <input type="time" name="timeIn" placeholder="Time In">
+            <input type="text" name="duration" placeholder="Duration in Minutes">
+            <input type="text" name="pg" placeholder="Pressure Group">
+            <input type="text" name="visibility" placeholder="Visibility">
+            <input type="text" name="location" placeholder="Location">
+            <input type="text" name="kit" placeholder="Kit">
+            <input type="text" name="buddy" placeholder="Buddy">
+            <input type="text" name="dive_no" placeholder="Dive Number">
+            <input type="text" name="profile" placeholder="Dive Profile">
+            
+            <textarea type="text" name="description" placeholder="Description" cols="40" rows="5"> </textarea>
             
             <input type="button" onclick="addDive()" value="Submit" >
+            
+            
         </form>
     </div>
     
@@ -51,7 +61,8 @@
                 <th>Dive NO</th>
                 <th>Date</th>
                 <th>Depth</th>
-                <th>Time</th>
+                <th>Time In</th>
+                <th>Duration</th>
                 <th>Visibility</th> 
                 <th>PG</th>
                 <th>Location</th>
@@ -65,6 +76,7 @@
                 <td>1</td>
                 <td>20.12.2015</td>
                 <td>20 Meters</td>
+                <td>12:15</td>
                 <td>20 Mins</td>
                 <td>4 Meters </td>
                 <td>N/A</td>
@@ -72,7 +84,7 @@
                 <td>Mask </td>
                 <td>Jhon </td>
                 <td> Went for a bumble round the bus</td>
-                <td id="logImage"> <img src="logo.jpg"></td>
+                <td id="logImage"> <img src="logo.jpg" height="30%" > </td>
             </tr>
             
         </table>

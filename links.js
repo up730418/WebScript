@@ -67,7 +67,7 @@ function addDive()
 {
     var log = document.getElementById("inputs");
     var table = document.getElementById("logTable");
-    table.innerHTML= table.innerHTML + "<td>" + log.dive_no.value + "</td>" + "<td>" + log.date.value + "</td>" + "<td>" + log.depth.value + "</td>" + "<td>" + log.time.value  + "</td>" + "<td>" + log.visibility.value  + "</td>" + "<td>" + log.pg.value  + "</td>" + "<td>" + log.location.value  + "</td>" + "<td>" + log.kit.value  + "</td>" + "<td>" + log.buddy.value  + "</td>" + "<td>" + log.description.value  + "</td>" + "<td id=kitImage>" + "<img src=" + log.profile.value + ">" + "</td>";
+    table.innerHTML= table.innerHTML + "<td>" + log.dive_no.value + "</td>" + "<td>" + log.date.value + "</td>" + "<td>" + log.depth.value + "</td>" + "<td>" + log.timeIn.value  + "</td>" + "<td>" + log.duration.value + "Mins"  + "</td>" + "<td>" + log.visibility.value  + "</td>" + "<td>" + log.pg.value  + "</td>" + "<td>" + log.location.value  + "</td>" + "<td>" + log.kit.value  + "</td>" + "<td>" + log.buddy.value  + "</td>" + "<td>" + log.description.value  + "</td>" + "<td id=kitImage>" + "<img src=" + log.profile.value + ">" + "</td>";
 }
 
 
