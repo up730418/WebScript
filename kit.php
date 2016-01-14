@@ -1,4 +1,37 @@
-<!DOCTYPE html>
+<?php
+$f = "<script>console.log(' HEllo i loadeed' );</script>";
+echo $f;
+
+
+if (isset($_POST['submit'])){
+    
+$f = "<script>console.log(' HEllo I Started' );</script>";
+echo $f;
+//header('Contet-Type: text/javascript');
+    
+    
+    echo "hello";
+
+$json = array( 
+    "image" =>"logo.jpg",
+    "brand" => "",
+    "model" => "",
+    "item" => "",
+    "date" => "");
+
+    
+$json['brand'] = $_GET['brand'];
+$json['model'] = $_GET['model'];
+$json['item'] = $_GET['item'];
+$json['date'] = $_GET['date'];
+
+
+echo json_encode($json);
+$some = "<script>console.log( 'Debug Objects: " .json_encode($json). "' );</script>";
+echo $some;
+}
+?>
+
 <html>
 
 <head>
@@ -7,7 +40,7 @@
         <meta name="description" content="The place Divers go to meet"/>
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
-        <script src="kit.js"> </script> 
+        <script src="links.js"> </script> 
         
 </head>
     
@@ -31,14 +64,14 @@
     <div id="addKit">
             
 
-        <form  method="post" action="add.php" id="inputs">
+        <form  method="post" action="" id="inputs">
            <input type="text" name="image" placeholder="Image">
             <input type="text" name="brand" placeholder="Brand">
             <input type="text" name="model" placeholder="Model descrition">
             <input type="text" name="item" placeholder="Type of item">
             <input type="date" name="date" placeholder="Date Purchased">
             
-             <input type="submit" name="submit" value="submit" onclick="addKit()">
+            <input type="submit" name="submit" value="submit" >
         </form>
     </div>
     
@@ -63,8 +96,6 @@
                 
             
             </tr>
-            
-            <p id="teststuff">hello </p>
             
         </table>
         

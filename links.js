@@ -70,14 +70,58 @@ function addDive()
     table.innerHTML= table.innerHTML + "<td>" + log.dive_no.value + "</td>" + "<td>" + log.date.value + "</td>" + "<td>" + log.depth.value + "</td>" + "<td>" + log.timeIn.value  + "</td>" + "<td>" + log.duration.value + "Mins"  + "</td>" + "<td>" + log.visibility.value  + "</td>" + "<td>" + log.pg.value  + "</td>" + "<td>" + log.location.value  + "</td>" + "<td>" + log.kit.value  + "</td>" + "<td>" + log.buddy.value  + "</td>" + "<td>" + log.description.value  + "</td>" + "<td id=kitImage>" + "<img src=" + log.profile.value + ">" + "</td>";
 }
 
+function addKit()
+{
+    var xhr = new XMLHttpRequest();
+    var url = "db3.php"
+    var kit = document.getElementById("inputs");
+    xhr.open("GET", url, true);
+    //xhr.onload = alert('hi');
+    xhr.setRequestHeader("Content-Type", "text/html");
+    xhr.addEventListener("readystatechange", process, false);
+    xhr.send();
+        
+}
 
+function process(e)
+{
+    	var currentReadyState = e.target.readyState;
+	var currentStatus = e.target.status;
+
+	if(currentReadyState == 4 && currentStatus == 200) {
+	   addToTable(e.target.responseText);
+	}
+}
+
+function addToTable(response) {
+	var data = JSON.parse(response);
+	
+	var id = data;
+    var table = document.getElementById("kitTable")
+    table.innerHTML + "<td id=kitImage>" + id + "</td>";
+	/**
+    var minute = time.tm_min;
+	
+	if (minute < 10) {
+		minute = "0" + minute;
+	}
+	
+	myText.textContent = hour + ":" + minute;
+    **/
+    
+}
+
+/** Old function trying new JSON SHIT
 function addKit()
 {
     var kit = document.getElementById("inputs");
+         
     var table = document.getElementById("kitTable");
     table.innerHTML= table.innerHTML + "<td id=kitImage>" + "<img src=" + kit.image.value + ">" + "</td>" + "<td>" + kit.item.value  + "</td>" + "<td>" + kit.brand.value + "</td>" + "<td>" + kit.model.value + "</td>" + "<td>" + kit.date.value  + "</td>";
+    
+    
 }
-
+**/
 function comment()
 {
     
@@ -102,6 +146,8 @@ function newDiv()
     
     //alert("Done");
 }
+
+
 
 function readFile(){
                 var file = File.open(info.txt);
