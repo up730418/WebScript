@@ -6,7 +6,7 @@ $password = "root";
 $db = 'test';
 $user ='rob';
 $pass = 'rob';
-$tableName = 'kit';
+$tableName = 'Kit';
 
 $f = "<script>console.log(' HEllo i loadeed' );</script>";
 echo $f;
@@ -30,8 +30,8 @@ $json[4] = $_POST['date'];
 $dbh = new PDO( "mysql:host=$servername; dbname=$db;", $username,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$ins =("insert into $tableName (image, brand, model, item, date) 
-    values ('$json[0]', '$json[1]', '$json[2]', '$json[3]', '$json[4]');") or die(print_r($dbh->errorInfo(), true));
+$ins =("insert into $tableName (image, brand, model, item, date, userId) 
+    values ('$json[0]', '$json[1]', '$json[2]', '$json[3]', '$json[4]','001');") or die(print_r($dbh->errorInfo(), true));
     
     $dbh->query($ins);
     
