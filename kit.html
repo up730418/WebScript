@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="main.css"/>
         <script src="kit.js"> </script> 
         
+        
 </head>
     
     
@@ -17,7 +18,7 @@
     <div id = "topbar">
         
         <!--<img src="logo.jpg" >-->
-        <input type="text" name="test" placeholder="Search">
+        <input type="text" name="search" placeholder="Search" onkeyup="result(this.value)">
         <button id="topbtn" onclick="window.location='diveLogs.html';"> Logs</button>
         <button id="topbtn" onclick="window.location='sites.html';"> Dive Sites</button>
         <button id="topbtn" onclick="window.location='kit.html';"> Kit</button>
@@ -31,14 +32,14 @@
     <div id="addKit">
             
 
-        <form  method="post" action="add.php" id="inputs">
+        <form   id="inputs">
            <input type="text" name="image" placeholder="Image">
             <input type="text" name="brand" placeholder="Brand">
             <input type="text" name="model" placeholder="Model descrition">
             <input type="text" name="item" placeholder="Type of item">
             <input type="date" name="date" placeholder="Date Purchased">
             
-             <input type="submit" name="submit" value="submit" onclick="fuckKit()">
+             <input type="submit" name="submit" onclick="addKit()"> 
         </form>
     </div>
     
@@ -54,7 +55,7 @@
                 <th>Model</th>
                 <th>Date Purchased</th>        
             </tr>
-            <tr>
+            <tr id="kitList">
                 <td id="kitImage"> <img src="logo.jpg"></td>
                 <td>Tank</td>
                 <td>Mares</td>
@@ -63,8 +64,6 @@
                 
             
             </tr>
-            
-            <p id="teststuff">hello </p>
             
         </table>
         

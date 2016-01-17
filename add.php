@@ -4,41 +4,32 @@ $servername = "localhost";
 $username = "root";
 $password = "root";
 $db = 'test';
-$user ='rob';
-$pass = 'rob';
-$tableName = 'Kit';
-
-$f = "<script>console.log(' HEllo i loadeed' );</script>";
-echo $f;
-header('Location: kit.html');
-
-if ($_POST['submit']){
-    
-$f = "<script>console.log(' HEllo u posted' );</script>";
-echo $f;
-//header('Contet-Type: text/javascript', 'Location: kit.html');
-
-$json = array('logo.jpg');
-
-    
-$json[1] = $_POST['brand'];
-$json[2] = $_POST['model'];
-$json[3] = $_POST['item'];
-$json[4] = $_POST['date'];
-    
-
 $dbh = new PDO( "mysql:host=$servername; dbname=$db;", $username,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$ins =("insert into $tableName (image, brand, model, item, date, userId) 
-    values ('$json[0]', '$json[1]', '$json[2]', '$json[3]', '$json[4]','001');") or die(print_r($dbh->errorInfo(), true));
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$json = $_GET['kit'];
+
+if(strpos($json, 'KIT') == true)
+{
     
-    $dbh->query($ins);
+    addKit($json, $dbh);
+}
+
+else
+{
+   
+}
+
+
+Function addKit($json, $db)
+{
+    $array=split(',', $json);
+
+    $ins =("insert into Kit (image, brand, model, item, date, userId) 
+        values ('$array[0]', '$array[1]', '$array[2]', '$array[3]', '$array[4]','$array[5]');") or die(print_r($dbh->errorInfo(), true));
     
-    
-echo json_encode($json);
-$some = "<script>console.log( 'Debug Objects: " .json_encode($json). "' );</script>";
-echo $some;
+    $db->query($ins);    
 }
 ?>
 
