@@ -21,6 +21,7 @@
         <button id="topbtn" onclick="window.location='diveLogs.html';"> Logs</button>
         <button id="topbtn" onclick="window.location='sites.html';"> Dive Sites</button>
         <button id="topbtn" onclick="window.location='kit.html';"> Kit</button>
+        <button id="topbtn" onclick="window.location='challanges.html';"> Challanges </button>
         <button id="topbtn" onclick="window.location='home.html';"> Log Out</button>
         
         
@@ -41,3 +42,11 @@
     
     </body>
 </html>
+
+insert into enrolment values (1,1,1,1)
+
+insert into enrolment (studentID, unitID, year, mark) 
+    select studentID, unitID, year, mark from enrolment;
+
+
+update enrolment set studentID = floor(rand()*58000)+1;

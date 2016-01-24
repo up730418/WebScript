@@ -7,8 +7,8 @@
         <meta name="description" content="The place Divers go to meet"/>
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
-        <script src="links.js"> </script> 
         <script src="search.js"> </script>
+        <script src="login.js"> </script> 
         
 </head>
     
@@ -18,26 +18,26 @@
     <div id = "topbar">
         
         <!--<img src="logo.jpg" >-->
-        <input type="text" onkeyup="result(this.value)">
+        <input type="text" name=test placeholder="Search">
         <button id="topbtn" onClick="window.location='diveLogs.html';"> Logs</button>
         <button id="topbtn" onClick="window.location='sites.html';"> Dive Sites</button>
         <button id="topbtn" onClick="window.location='kit.html';"> Kit</button>
+        <button id="topbtn" onclick="window.location='challanges.html';"> Challanges </button>
         <button id="topbtn" onClick="window.location='home.html';"> Log Out</button>
-                <div id = "search"></div>
         
         
         
     </div>
     
     
-    
-    <div id="addPost">
+    <div id="Login">
             
+    </form>
         <form id="inputs">
-           <input type="text" name= "test" placeholder="Enter your update">
-            <input type="button" onclick="newDiv()" value="submit" >
+           <input type="text" name= "user" placeholder="Enter Username">
+            <input type="text" name= "password" placeholder="Enter Password">
+            <input type="button" onclick="logIn()" value="submit" >
         </form>
-            <button id ="one" onclick="newDiv()"> Submit </button>
     </div>
     
     <div id= "post">
@@ -45,5 +45,4 @@
     </div>
         
     </body>
-    
-    
+</html>

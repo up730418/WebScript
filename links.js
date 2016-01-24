@@ -42,8 +42,8 @@ window.addEventListener(
 );
 
 
-var name = "Jhon Wayn";
-var image = "logo.jpg";
+//var name = "Jhon Wayn";
+//var image = "logo.jpg";
 
 
 

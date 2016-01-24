@@ -17,7 +17,7 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         or die(print_r($dbh->errorInfo(), true));
     
     // SQL querry for creating a table
-    $kit = ("CREATE TABLE Kit (
+    $kit = ("CREATE TABLE IF NOT EXISTS Kit (
         id    int PRIMARY KEY auto_increment,
         image varchar(100),
         brand varchar(100),
@@ -28,7 +28,7 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         );");
 
     // SQL querry for creating a table
-    $logs = ("CREATE TABLE Logs (
+    $logs = ("CREATE TABLE IF NOT EXISTS Logs (
         id    int PRIMARY KEY auto_increment,
         diveNo varchar(100),
         date varchar(100),
@@ -45,18 +45,29 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         );");
 
     // SQL querry for creating a table
-    $user = ("CREATE TABLE User (
+    $user = ("CREATE TABLE IF NOT EXISTS User (
         id    int PRIMARY KEY auto_increment,
         username varchar(100),
-        password varchar(100)
+        password varchar(100),
+        picture varchar(100)
         );");
 
     // SQL querry for creating a table
-    $comment = ("CREATE TABLE Comment (
+    $comment = ("CREATE TABLE IF NOT EXISTS Comment (
         id    int PRIMARY KEY auto_increment,
         userID varchar(100),
         comment varchar(100),
         narc varchar(100)
+        );");
+
+    $challange = ("CREATE TABLE IF NOT EXISTS Challange (
+        id    int PRIMARY KEY auto_increment,
+        userID varchar(100),
+        name varchar(100),
+        date_added varchar(100),
+        description varchar(1000),
+        image varchar(100),
+        likes int(10)
         );");
 
 
@@ -83,6 +94,8 @@ try
     $dbh->exec($logs);
     $dbh->exec($user);
     $dbh->exec($comment);
+    $dbh->exec($challange);
+    
 }
 
 catch(PDOException $e)  // if tables already exist do nothing
@@ -91,26 +104,4 @@ catch(PDOException $e)  // if tables already exist do nothing
     
 }
 
-    
-    // old iseert to check if db was working should be deleted in real product
-    $ins =("insert into $tableName ($columns[0], $columns[1], $columns[2], $columns[3], $columns[4]) 
-    values ('fred', 'pootang', 'Lab69', 'fun', 'times');") or die(print_r($dbh->errorInfo(), true));
-    
-    //$dbh->query($ins);
-
-// Old test function to return data from DB now migrated to dbSearch.php
-Function returnResults($db, $table, $columns)
-{
-     foreach($db->query("select * from $table") as $row)
-     {
-        $data = $row['id']. '****'. $row[$columns[0]]. '****'. $row[$columns[1]]. '****'. $row[$columns[2]]. '****'. 
-            $row[$columns[3]]. '****'. $row[$columns[4]];
-         $data = json_encode($data);
-         echo $data;
-     }
-}
-
-//returnResults($dbh, $tableName, $columns);
-        
-//echo "<br> <br> end";
 ?>

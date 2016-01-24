@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -8,8 +9,10 @@
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
         <script src="search.js"> </script>
-        <script src="comments.js"> </script>
-        <script src="home.js"> </script> 
+        <script src = "comments.js"> </script>
+        <script src="challange.js"> </script>
+
+    
         
 </head>
     
@@ -19,7 +22,7 @@
     <div id = "topbar">
         
         <!--<img src="logo.jpg" >-->
-        <input type="text" name=test placeholder="Search">
+        <input type="text" name="test" placeholder="Search" onkeyup="popularChallangeSearch(this.value)">
         <button id="topbtn" onclick="window.location='diveLogs.html';"> Logs</button>
         <button id="topbtn" onclick="window.location='sites.html';"> Dive Sites</button>
         <button id="topbtn" onclick="window.location='kit.html';"> Kit</button>
@@ -27,27 +30,36 @@
         <button id="topbtn" onclick="window.location='home.html';"> Log Out</button>
         
         
+    </div>
+    
+    <div id="challangeName">  
+    
+    </div>
+          
+    
+    <div id="challangeImages">  
         
     </div>
     
     
-    <div id="addPost">
-            
-        <form id="inputs">
-           <input type="text" name="comment" placeholder="Enter your update">
-            <input type="button" onclick="newPost()" value="submit" >
-        </form>
-            <!-- <button id ="one" onclick="newDiv()"> Submit </button> -->
-    </div>
-    
-    <div id="post">
-        
+    <div id = "like">
         
     </div>
     
+    
+    <div id="challangeDescription">
+        <h2> Description</h2>
+        <p id="challangeDescriptionText"> </p>
+
+    </div>
+    
+    
+    <div id="challangeComments">
+        <h2> Comments </h2>
+        <div id="comments"> 
+        
+        </div>
+    </div>
     
     </body>
-
-
-
 </html>

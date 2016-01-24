@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8"/>
+        <title>Dive Book - Home</title>
+        <meta name="description" content="The place Divers go to meet"/>
+        <meta name="author" content="up730418"/>
+        <link rel="stylesheet" href="main.css"/>
+        <script src="search.js"> </script>
+        <script src="challanges.js"> </script>
+    
+        
+</head>
+    
+    
+<body>
+
+    <div id = "topbar">
+        
+        <!--<img src="logo.jpg" >-->
+        <input type="text" name="test" placeholder="Search" onkeyup="popularChallangeSearch(this.value)">
+        <button id="topbtn" onclick="window.location='diveLogs.html';"> Logs</button>
+        <button id="topbtn" onclick="window.location='sites.html';"> Dive Sites</button>
+        <button id="topbtn" onclick="window.location='kit.html';"> Kit</button>
+        <button id="topbtn" onclick="window.location='challanges.html';"> Challanges </button>
+        <button id="topbtn" onclick="window.location='home.html';"> Log Out</button>
+        
+        
+    </div>
+    
+    
+    <div id="addChallange">
+            
+
+        <form id="inputs">
+           <input type="text" name="name" placeholder="Name">
+            <input type="date" name="date" placeholder="Date Started">
+            <input type="text" name="image" placeholder="Image">            
+            <textarea type="text" name="description" placeholder="Description" cols="40" rows="5"> </textarea>
+            <input type="button" onclick="addChallange()" value="Submit" > 
+        </form>
+        
+    </div>
+    
+    <div id="myChallanges">
+        
+        <h3> My Challanges </h3>
+        
+        <table id="myChallangesTable">
+            <tr>
+                <th>Name</th>
+                <th>Date Added</th>
+                <th>Description</th>
+                <th>images</th>
+            </tr>
+            <tr>
+                <td>challange 1</td>
+                <td>20.12.2015</td>
+                <td>dive and survive</td>
+                <td id="myChallangesImage"> <img src="logo.jpg" height="30%" > </td>
+                <td> <input type="button" onclick="like()" value="like"></input> </td>
+            </tr>  
+        </table>
+    </div>
+    
+    <div id="PopularChallanges">
+        
+        <h3> Popular Challanges </h3>
+        
+        <table id="PopularChallangesTable">
+                      <tr>
+                <th>Name</th>
+                <th>Date Added</th>
+                <th>Description</th>
+                <th>images</th>
+                <th>like</th>
+            </tr>
+            <tr>
+                
+                <td>challange 1</td>
+                <td>20.12.2015</td>
+                <td>dive and survive</td>
+                <td id="PopularChallangesImage"> <img src="logo.jpg" height="30%" > </td>
+                <td> <input type="button" onclick="like()" value="like"></input> </td>
+            </tr>
+            
+        </table>
+        
+    </div>
+    
+    </body>
+</html>
