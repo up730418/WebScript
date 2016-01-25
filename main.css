@@ -1,3 +1,4 @@
+/** all pages **/
 header
 {
     width: 100%;
@@ -41,47 +42,6 @@ input[type=radio] {
 	display: none;
 }
  
-
-#addPost{ 
-
-    margin-top: 2em;
-    margin-left: 25%;
-    display: inline-block;
-    width: 50%
-   
-
-}
-
-#addPost input[type=text]{
-    width: 100%;
-    height: 5em;
-    border-radius: 1em;
-    
-    
-}
-
-
-diva{ 
-margin-left: 25%;
-margin-top: 4px;
-width: 50%;
-color: blue;
-border: 5px;
-border-color: black;
-border-style: solid;
-word-wrap: break-word;
-display: block;
-    
-}
-
-diva image{
-    width: 10%;
-}
-diva button{
-    margin-left: 1em;
-    
-}
-
 #topbar{
     height: 2em;
     background: #4368E8;
@@ -108,13 +68,57 @@ diva button{
     
 }
 
+
+/** for home.html **/
+#addPost{ 
+
+    margin-top: 2em;
+    margin-left: 25%;
+    display: inline-block;
+    width: 50%
+   
+
+}
+
+#addPost input[type=text]{
+    width: 100%;
+    height: 5em;
+    border-radius: 1em;
+    
+    
+}
+
 #post{
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
+}
+
+
+/** for comments **/
+diva{ 
+margin-left: 25%;
+margin-top: 4px;
+width: 50%;
+color: blue;
+border: 5px;
+border-color: black;
+border-style: solid;
+word-wrap: break-word;
+display: block;
     
 }
 
+diva image{
+    width: 10%;
+}
+diva button{
+    margin-left: 1em;
+    
+}
+
+
+/** for kit.html **/
 #Kit{
 
     width: 80%;
@@ -155,6 +159,8 @@ diva button{
 {
     color: pink;
 }
+
+/** for diveLogs.html **/ 
 
 #diveLogs{
     align-content: center;
@@ -200,6 +206,8 @@ diva button{
     
     
 }
+
+/** for challanges.html **/
 
 #addChallange{
     margin-left: 2em;
@@ -291,5 +299,14 @@ diva button{
     margin-top: 2vh;
     border: solid;
     
+    
+}
+
+/** for sites.html **/
+
+#location{
+    border: solid;
+    height: 80vh;
+    height: 80vh;
     
 }

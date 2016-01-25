@@ -18,10 +18,10 @@ function displayComments(response)
                 var post = document.getElementById(divName);
                 resultNonASync("Select username, picture from User where id ='" + column[1] + "';", namePic);
                
-               console.log(name);
+               //console.log(pic);
                // var pic = result2("Select picture from User where id ='" + column[1] + "';");
                
-               var pic = "logo.jpg";
+              
              
                 diva.innerHTML ="<img src ='" + pic + "' width='20%'>" +  name  + "<p>" + column[2]  + "</p>" +
                     "<button onClick='newDiv()'> Comment </button>" + "<button> Share </button>" + "<button> Narc+" +column[3] +" </button>" ;
@@ -38,9 +38,9 @@ function namePic(str)
      name = data[0];
      pic = data[1]; 
     
-    var sam = name.split('"');
-    name = sam[1]
-     console.log(sam + pic);
+    var nameSplit = name.split('"');
+    name = nameSplit[1];
+    // console.log(sam + pic);
 }
 
 function getDiv(str)

@@ -35,12 +35,21 @@ function createPage(response)
             name.innerHTML = column[2];
             image.innerHTML = "<img src="+column[5]+">";
             description.innerHTML = column[4];
-            likes.innerHTML = "<input type='button' value='Likes = "+column[6]+"' > </input>";
+            likes.innerHTML = "<input type='button' value='Likes = "+column[6]+"' onclick='likeRecord(" 
+                        + id[1] +")' > </input>";
                
            }
     
 }
 
+
+function likeRecord(id)
+{
+    var like = "update Challange set likes = likes %2B 1 where id =" + id + ";";
+    result(like, null);
+    pageSearch();
+
+}
 
 commentGather('');
 pageSearch();

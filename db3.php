@@ -10,13 +10,10 @@ $tableName = 'Kit';
 $columns = array('image', 'brand', 'model', 'item', 'date');
 
     // Database creation Variable
-    $create =     $sql = ("CREATE DATABASE `$db`;
-                CREATE USER '$user'@'localhost' IDENTIFIED BY '$pass';
-                GRANT ALL ON `$db`.* TO '$user'@'localhost';
-                FLUSH PRIVILEGES;") 
+    $create =     $sql = ("CREATE DATABASE `$db`;") 
         or die(print_r($dbh->errorInfo(), true));
     
-    // SQL querry for creating a table
+    // SQL querry for creating the kit table
     $kit = ("CREATE TABLE IF NOT EXISTS Kit (
         id    int PRIMARY KEY auto_increment,
         image varchar(100),
@@ -27,7 +24,7 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         userID varchar(100)
         );");
 
-    // SQL querry for creating a table
+    // SQL querry for creating the logs table
     $logs = ("CREATE TABLE IF NOT EXISTS Logs (
         id    int PRIMARY KEY auto_increment,
         diveNo varchar(100),
@@ -44,7 +41,7 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         userID varchar(100)
         );");
 
-    // SQL querry for creating a table
+    // SQL querry for creating the user table
     $user = ("CREATE TABLE IF NOT EXISTS User (
         id    int PRIMARY KEY auto_increment,
         username varchar(100),
@@ -52,19 +49,31 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         picture varchar(100)
         );");
 
-    // SQL querry for creating a table
+    // SQL querry for creating the comment table
     $comment = ("CREATE TABLE IF NOT EXISTS Comment (
         id    int PRIMARY KEY auto_increment,
         userID varchar(100),
         comment varchar(100),
         narc varchar(100)
         );");
-
+    
+    // SQL querry for creating the challange table
     $challange = ("CREATE TABLE IF NOT EXISTS Challange (
         id    int PRIMARY KEY auto_increment,
         userID varchar(100),
         name varchar(100),
         date_added varchar(100),
+        description varchar(1000),
+        image varchar(100),
+        likes int(10)
+        );");
+
+    // SQL querry for creating the dive Location table
+    $diveLocation = ("CREATE TABLE IF NOT EXISTS diveLocation (
+        id    int PRIMARY KEY auto_increment,
+        userID varchar(100),
+        name varchar(100),
+        location varchar(100),
         description varchar(1000),
         image varchar(100),
         likes int(10)
@@ -95,13 +104,12 @@ try
     $dbh->exec($user);
     $dbh->exec($comment);
     $dbh->exec($challange);
-    
+    $dbh->exec($diveLocation);
 }
 
-catch(PDOException $e)  // if tables already exist do nothing
+catch(PDOException $e)  // Cathch that does nothing probably needs deleting
 { 
    //echo"<br> Table already exists or some other shit broke check log if it dont output tables<br>";    
     
 }
-
 ?>

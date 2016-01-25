@@ -40,7 +40,7 @@ function addToTable(response)
                var column = row[i].split("****");
                var id = column[0].split('"');
                var tb = "Kit";
-                table.innerHTML += "<td>" + column[2]  + "</td>" + "<td>" + 
+                table.innerHTML += "<td> <a href='challange.html?" + id[1] + "'>" + column[2]  + " </a> </td>" + "<td>" + 
                  column[3] + "</td>" + "<td>" + column[4] + "</td>" + "<td id=kitImage>" 
                     + "<img src= " +  column[5] + ">" + "</td>" 
                         + "<td> <input  id='like' type='button' onclick='likeRecord(" 
@@ -61,7 +61,7 @@ function addToTable2(response)
                var column = row[i].split("****");
                var id = column[0].split('"');
                var tb = "Kit";
-                table.innerHTML += "<td>" + column[2]  + "</td>" + "<td>" + 
+                table.innerHTML += "<td> <a href='challange.html?" + id[1] + "'>" + column[2]  + " </a> </td>" + "<td>" + 
                  column[3] + "</td>" + "<td>" + column[4] + "</td>" + "<td id=kitImage>" 
                     + "<img src= " +  column[5] + ">" + "</td>" 
                         + "<td> <input  id='like' type='button' onclick='likeRecord(" 

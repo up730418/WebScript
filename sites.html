@@ -28,14 +28,19 @@
         
     </div>
     
-    <div id="testing">
-        <p> Harrow</p>
+        <h2> Locations </h2>
         
-    </div>
+
     
-     <div id="test2">
-        <p> Harrow</p>
+     <div id="location">
+         <input type="button" value="Top Locations" onclick="topLocations"> 
+         <input type="button" value="Recently Added" onclick="recentlyAdded"> 
+         <input type="button" value="All Locations" onclick="allLocations">
+         <input type="button" value="Add Location" onclick="addLocation"> 
         
+        <div id = "locationResults">
+        
+        </div>
     </div>
     
     
@@ -43,10 +48,3 @@
     </body>
 </html>
 
-insert into enrolment values (1,1,1,1)
-
-insert into enrolment (studentID, unitID, year, mark) 
-    select studentID, unitID, year, mark from enrolment;
-
-
-update enrolment set studentID = floor(rand()*58000)+1;
