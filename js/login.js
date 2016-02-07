@@ -26,7 +26,7 @@ function completeLogIn(foo)
             foo = foo.replace("****", '');
             foo = foo.split('"');
             
-            document.cookie = foo[1];
+            document.cookie = "userID=" +foo[1];
             window.location.href = "home.html";
         }
         

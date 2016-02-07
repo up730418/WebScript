@@ -8,28 +8,35 @@ $dbh = new PDO( "mysql:host=$servername; dbname=$db;", $username,$password);
 
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$json = $_GET['kit'];
+//$json = $_GET['kit'];
 
-if(strpos($json, 'KIT') == true)
+if(isset($_GET['kit']))
 {
-    
-    addKit($json, $dbh);
+	$json = $_GET['kit'];
+     addKit($json, $dbh);
 }
 
-else if (strpos($json, 'LOGS') == true)
+if(isset($_GET['log']))
 {
-   addLog($json, $dbh);
+	$json = $_GET['log'];
+    addLog($json, $dbh);
 }
 
-else if (strpos($json, 'COMMENT') == true)
+if(isset($_GET['comment']))
 {
    addComment($json, $dbh);
 }
 
-else if (strpos($json, 'CHALLANGE') == true)
+if(isset($_GET['challange']))
 {
    addChallange($json, $dbh);
 }
+
+if(isset($_GET['chComment']))
+{
+   addChComment($json, $dbh);
+}
+
 
 else{}
 
@@ -62,8 +69,23 @@ Function addComment($json, $db)
 
     $ins =("insert into Comment (userID, comment, narc) 
         values ('$array[0]', '$array[1]', '$array[2]');") or die(print_r($dbh->errorInfo(), true));
-    
+    	echo "h1";
     $db->query($ins);    
+}
+
+Function addChComment($json, $db)
+{
+	$array=split(',', $json);
+
+    $ins =("insert into Comment (userID, comment, narc) 
+        values ('$array[0]', '$array[1]', '$array[2]');") or die(print_r($dbh->errorInfo(), true));
+
+    $db->query($ins);
+	
+	$commentID = $db ->lastInsertId();
+	
+	$ins2 = ("insert into locationComments values('$array[3]','$commentID');") or die(print_r($dbh->errorInfo(), true));
+	 $db->query($ins2);
 }
 
 Function addChallange($json, $db)

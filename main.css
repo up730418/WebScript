@@ -310,3 +310,7 @@ diva button{
     height: 80vh;
     
 }
+#locationInput
+{
+	display:none; 
+}

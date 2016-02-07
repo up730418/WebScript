@@ -4,8 +4,6 @@ $servername = "localhost";
 $username = "root";
 $password = "root";
 $db = 'test';
-$user ='rob';
-$pass = 'rob';
 $tableName = 'Kit';
 $columns = array('image', 'brand', 'model', 'item', 'date');
 
@@ -79,6 +77,11 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         likes int(10)
         );");
 
+	$locationComment = ("CREATE TABLE IF NOT EXISTS locationComments (
+        locationID int,
+        commentID int
+        );");
+
 
 try{// try to connect to the database if it already exists
 
@@ -91,10 +94,17 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 catch(PDOException $e) // if db dosent exist connect to server create db then link to  it
 { 
     //echo "<br> Creating Database<br>";
+	try{
     $dbh = new PDO( "mysql:host=$servername;", $username,$password);
     $dbh->exec($create);
     $dbh = new PDO( "mysql:host=$servername; dbname=$db;", $username,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+	}
+	
+	catch(PDOException $e){
+		echo "Error connecting to database please check error message logs <br> Error Messaage: <br>";
+		echo $e;
+	}
 }
 
 try
@@ -105,11 +115,14 @@ try
     $dbh->exec($comment);
     $dbh->exec($challange);
     $dbh->exec($diveLocation);
+	$dbh->exec($locationComment);
+	echo "Installation succesfully completed";
 }
 
 catch(PDOException $e)  // Cathch that does nothing probably needs deleting
 { 
-   //echo"<br> Table already exists or some other shit broke check log if it dont output tables<br>";    
+   	echo "Somthing went wrong with the installation pleas check error message and server logs<br>"; 
+	echo $e;
     
 }
 ?>

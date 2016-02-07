@@ -13,7 +13,7 @@ function result(str,  process1) {
                 
             }
     }
-        xhr.open("GET", "dbSearch.php?querry="+str, true);
+        xhr.open("GET", "php/dbSearch.php?querry="+str, true);
         xhr.send();
     
 }
@@ -34,7 +34,7 @@ function resultNonASync(str,  process1) {
                 
             }
     }
-        xhr.open("GET", "dbSearch.php?querry="+str, false);
+        xhr.open("GET", "php/dbSearch.php?querry="+str, false);
         xhr.send();
     
 }

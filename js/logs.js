@@ -1,4 +1,7 @@
- var userID = document.cookie;
+var cookieValue = document.cookie;
+var userID = cookieValue.split("=");
+userID = userID[1];
+
 
 function logSearch(str)
 {
@@ -15,15 +18,14 @@ function logSearch(str)
 
 function addLog()
 {
-    var xhr = new XMLHttpRequest();
-    var log = document.getElementById("inputs");
+
+    var data = document.getElementById("inputs");
     
-    log = Array(log.dive_no.value, log.date.value, log.depth.value, log.timeIn.value,
-                log.duration.value, log.visibility.value, log.pg.value, log.location.value,
-                    log.buddy.value, log.description.value, log.profile.value, userID, 'LOGS');
-    xhr.open("GET", "add.php?kit=" + log, true);
-    xhr.setRequestHeader("Content-Type", "text/html");
-    xhr.send();
+    data = Array(data.dive_no.value, data.date.value, data.depth.value, data.timeIn.value,
+                data.duration.value, data.visibility.value, data.pg.value, data.location.value,
+                    data.buddy.value, data.description.value, data.profile.value, userID, 'LOGS');
+	addData(data, "log");
+	
     logSearch('');
 }
     

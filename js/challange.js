@@ -1,5 +1,7 @@
 var id = window.location.search.substring(1);
-var userID = document.cookie;
+var cookieValue = document.cookie;
+var userID = cookieValue.split("=");
+userID = userID[1];
 
 console.log(id);
 
@@ -12,7 +14,7 @@ function pageSearch()
 
 function commentGather(str)
 {
-    str = "select * from Comment where comment like '%" + str + "%'";
+    str = "select id, userID, comment, narc from Comment, locationComments where locationComments.locationID =" + id +" and locationComments.commentID = Comment.id;";
     getDiv("comments");
     result(str, displayComments);
     
@@ -51,5 +53,17 @@ function likeRecord(id)
 
 }
 
-commentGather('');
-pageSearch();
+function addComment()
+{
+	// use new post function but add an extra thing to add.php that will add stuff to the new table
+	
+	var post = document.getElementById("inputs");
+
+    post = Array(userID, post.comment.value, "0", id);
+    
+	addData(post, "chComment");
+	commentGather('');
+}
+console.log("HELLO");
+window.onload = commentGather('');
+window.onload = pageSearch();

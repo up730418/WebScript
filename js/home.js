@@ -1,11 +1,13 @@
-var userID = document.cookie;
+var cookieValue = document.cookie;
+var userID = cookieValue.split("=");
+userID = userID[1];
 var ord = 100;
 var name;
 var pic;
 
 function checkLogin()
 {
-    if (document.cookie === null)
+    if (document.cookie.indexOf("userID") === null)
        {
          window.location.href = "login.html";
         }
@@ -21,16 +23,12 @@ function commentSearch(str)
 
 function newPost()
 {
-    var xhr = new XMLHttpRequest();
+
     var post = document.getElementById("inputs");
 
+    post = Array(userID, post.comment.value, "0", "COMMENT");
     
-    var data = Array(userID, post.comment.value, "0", "COMMENT");
-    
-    xhr.open("GET", "add.php?kit=" + data, true);
-    xhr.setRequestHeader("Content-Type", "text/html");
-    xhr.send();
-   /// kitSearch('');
+	addData(post, "comment");
 }
     
 

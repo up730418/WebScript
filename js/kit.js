@@ -1,4 +1,9 @@
- var userID = document.cookie;
+var cookieValue = document.cookie;
+var userID = cookieValue.split("=");
+userID = userID[1];
+
+console.log(userID);
+
 
 function kitSearch(str)
 {
@@ -9,13 +14,9 @@ function kitSearch(str)
 
 function addKit()
 {
-    var xhr = new XMLHttpRequest();
-    var kit = document.getElementById("inputs");
-    
-    kit = Array(kit.image.value, kit.brand.value, kit.item.value, kit.model.value, kit.date.value, userID, 'KIT');
-    xhr.open("GET", "add.php?kit=" + kit, true);
-    xhr.setRequestHeader("Content-Type", "text/html");
-    xhr.send();
+    var data = document.getElementById("inputs");   
+    data = Array(data.image.value, data.brand.value, data.item.value, data.model.value, data.date.value, userID, 'KIT');
+ 	addData(data, "kit");
     kitSearch('');
 }
     
@@ -43,7 +44,7 @@ function deleteRecord(id)
 {
     var del = "delete from Kit where id = " + id;
     result(del, addToTable);
-    kitSearch('');
+    //kitSearch('');  //can i delete this???? Probably y did i put it in
     
 }
 

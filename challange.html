@@ -8,9 +8,10 @@
         <meta name="description" content="The place Divers go to meet"/>
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
-        <script src="search.js"> </script>
-        <script src = "comments.js"> </script>
-        <script src="challange.js"> </script>
+        <script src="js/search.js"> </script>
+		<script src="js/addData.js"> </script>
+        <script src = "js/comments.js"> </script>
+        <script src="js/challange.js"> </script>
 
     
         
@@ -57,7 +58,14 @@
     <div id="challangeComments">
         <h2> Comments </h2>
         <div id="comments"> 
-        
+			 <div id="addPost">
+            
+       			 <form id="inputs">
+           			<input type="text" name="comment" placeholder="Enter your update">
+            		<input type="button" onclick="addComment()" value="submit" >
+        		</form>
+            <!-- <button id ="one" onclick="newDiv()"> Submit </button> -->
+    		</div>
         </div>
     </div>
     

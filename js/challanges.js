@@ -1,4 +1,6 @@
- var userID = document.cookie;
+var cookieValue = document.cookie;
+var userID = cookieValue.split("=");
+userID = userID[1];
 
 function myChallangeSearch(str)
 {
@@ -16,13 +18,12 @@ function popularChallangeSearch(str)
 
 function addChallange()
 {
-    var xhr = new XMLHttpRequest();
     var data = document.getElementById("inputs");
     
-    var challange = Array(userID, data.name.value, data.date.value, data.description.value, data.image.value, 'CHALLANGE');
-    xhr.open("GET", "add.php?kit=" + challange, true);
-    xhr.setRequestHeader("Content-Type", "text/html");
-    xhr.send();
+    data = Array(userID, data.name.value, data.date.value, data.description.value, data.image.value, 'CHALLANGE');
+	
+	addData(data, "challange");
+	
     myChallangeSearch('');
     popularChallangeSearch('');
 }
