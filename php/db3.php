@@ -82,6 +82,11 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         commentID int
         );");
 
+	$image = ("CREATE TABLE IF NOT EXISTS Image (
+        imageID int PRIMARY KEY auto_increment,
+        url varchar(100)
+        );");
+
 
 try{// try to connect to the database if it already exists
 
@@ -116,6 +121,7 @@ try
     $dbh->exec($challange);
     $dbh->exec($diveLocation);
 	$dbh->exec($locationComment);
+	$dbh->exec($image);
 	echo "Installation succesfully completed";
 }
 

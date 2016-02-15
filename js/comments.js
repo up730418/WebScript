@@ -1,5 +1,3 @@
-var name;
-var pic;
 var divName;
 var ord = 1000;
 
@@ -16,15 +14,15 @@ function displayComments(response)
                var diva = document.createElement("diva");
                var column = row[i].split("****");
                 var post = document.getElementById(divName);
-                resultNonASync("Select username, picture from User where id ='" + column[1] + "';", namePic);
+                //result("Select username, url from User join Image on User.picture = Image.imageid where id ='" + column[1] + "';", namePic);
                
                //console.log(pic);
                // var pic = result2("Select picture from User where id ='" + column[1] + "';");
                
               
              
-                diva.innerHTML ="<img src ='" + pic + "' width='20%'>" +  name  + "<p>" + column[2]  + "</p>" +
-                    "<button onClick='newDiv()'> Comment </button>" + "<button> Share </button>" + "<button> Narc+" +column[3] +" </button>" ;
+                diva.innerHTML ="<img src ='" + column[4]  + "' width='20%'>" +  column[3]   + "<p>" + column[1]  + "</p>" +
+                    "<button onClick='newDiv()'> Comment </button>" + "<button> Share </button>" + "<button> Narc+" +column[2] +" </button>" ;
                  //diva.style.order= column[0];
                ord -= 1;
                 diva.style.order = ord;
@@ -32,16 +30,7 @@ function displayComments(response)
                }                       
 }
 
-function namePic(str)
-{
-    var data = str.split("****");
-     name = data[0];
-     pic = data[1]; 
-    
-    var nameSplit = name.split('"');
-    name = nameSplit[1];
-    // console.log(sam + pic);
-}
+
 
 function getDiv(str)
 {
