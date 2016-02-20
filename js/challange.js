@@ -3,7 +3,7 @@ var cookieValue = document.cookie;
 var userID = cookieValue.split("=");
 userID = userID[1];
 
-console.log(id);
+console.log(userID);
 
 function pageSearch()
 {
@@ -14,7 +14,8 @@ function pageSearch()
 
 function commentGather(str)
 {
-    str = "select id, userID, comment, narc from Comment, locationComments where locationComments.locationID =" + id +" and locationComments.commentID = Comment.id;";
+	//str= "select Comment.id, comment, narc, User.username, Image.url  from Comment, locationComments  join User on User.id = Comment.userID join Image on User.picture = Image.imageID where locationComments.locationID =" + id +" and locationComments.commentID = Comment.id";
+    str = "select Comment.id, comment, narc, User.username, Image.url  from Comment join locationComments on  locationComments.locationID = " + id +" and locationComments.commentID = Comment.id join User on User.id = Comment.userID join Image on User.picture = Image.imageID;";
     getDiv("comments");
     result(str, displayComments);
     
@@ -57,10 +58,10 @@ function addComment()
 {
 	// use new post function but add an extra thing to add.php that will add stuff to the new table
 	
-	var post = document.getElementById("inputs");
+	var data = document.getElementById("inputs");
 
-    post = Array(userID, post.comment.value, "0", id);
-    
+    var post = Array(userID, data.comment.value, "0", id);
+
 	addData(post, "chComment");
 	commentGather('');
 }

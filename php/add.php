@@ -24,16 +24,19 @@ if(isset($_GET['log']))
 
 if(isset($_GET['comment']))
 {
+	$json = $_GET['comment'];
    addComment($json, $dbh);
 }
 
 if(isset($_GET['challange']))
 {
+	$json = $_GET['challange'];
    addChallange($json, $dbh);
 }
 
 if(isset($_GET['chComment']))
 {
+	$json = $_GET['chComment'];
    addChComment($json, $dbh);
 }
 

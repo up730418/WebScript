@@ -4,20 +4,33 @@ userID = userID[1];
 
 console.log(userID);
 
+var data;
 
 function kitSearch(str)
 {
     //str.toString();
-    str = "select * from Kit where concat(image,brand,model,item,date) like '%" + str + "%' and userID =" + userID;
+    str = "select id, Image.url, brand, model, item, date,userID from Kit join Image on Kit.image = Image.imageID where concat(image,brand,model,item,date) like '%" + str + "%' and userID =" + userID;
     result(str, addToTable);    
 }
 
 function addKit()
 {
-    var data = document.getElementById("inputs");   
-    data = Array(data.image.value, data.brand.value, data.item.value, data.model.value, data.date.value, userID, 'KIT');
+     data = document.getElementById("inputs");   
+   
+	
+	var file = document.getElementById("image");
+	upload(file.files[0], addKit2);
+
+}
+
+function addKit2(str)
+{
+	
+	data = Array( str, data.brand.value, data.item.value, data.model.value, data.date.value, userID, 'KIT');
  	addData(data, "kit");
+	
     kitSearch('');
+	
 }
     
 function addToTable(response) 
@@ -44,7 +57,7 @@ function deleteRecord(id)
 {
     var del = "delete from Kit where id = " + id;
     result(del, addToTable);
-    //kitSearch('');  //can i delete this???? Probably y did i put it in
+    kitSearch('');  //can i delete this???? Probably y did i put it in--- Re tested of course u do you mug
     
 }
 

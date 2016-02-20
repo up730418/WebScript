@@ -4,7 +4,7 @@ var ord = 1000;
 function displayComments(response) 
 {
 	var data = response;
-    console.log(post);
+    
     
     //table.innerHTML = "<tr><th>Image</th> <th>Type</th> <th>Brand</th> <th>Model</th> <th>Date Purchased</th><th> Delete </th> </tr>";
     var row = data.split('<br>');

@@ -24,9 +24,9 @@ function commentSearch(str)
 function newPost()
 {
 
-    var post = document.getElementById("inputs");
+    var data = document.getElementById("inputs");
 
-    post = Array(userID, post.comment.value, "0", "COMMENT");
+    var post = Array(userID, data.comment.value, "0");
     
 	addData(post, "comment");
 }
