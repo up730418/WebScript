@@ -38,7 +38,8 @@
             
 
         <form   id="inputs" enctype="multipart/form-data">
-           <input type="file" name="image" id="image">
+			<div id="imgUpload" > </div>
+           <input type="file" name="image" id="image"  onchange="loadFile(event)">
             <input type="text" name="brand" placeholder="Brand">
             <input type="text" name="model" placeholder="Model descrition">
             <input type="text" name="item" placeholder="Type of item">

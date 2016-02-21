@@ -5,7 +5,10 @@ userID = userID[1];
 console.log(userID);
 
 var data;
+var files;
 
+
+	
 function kitSearch(str)
 {
     //str.toString();
@@ -13,26 +16,41 @@ function kitSearch(str)
     result(str, addToTable);    
 }
 
+
+function loadFile(e)
+{
+	fileHandler(e.srcElement.files);
+}
+
+
 function addKit()
 {
-     data = document.getElementById("inputs");   
-   
+     data = document.getElementById("inputs");  
 	
+	
+	addKit2(getimgId())
+	/**
 	var file = document.getElementById("image");
-	upload(file.files[0], addKit2);
-
+	
+	if (files == null)
+		{
+			//upload(file.files[0], addKit2);
+			//console.log(file.files[0]);
+		}
+	//upload(files[0], addKit2);
+	var imgdiv = document.getElementById("imgUpload");
+	imgdiv.innerHTML = "<img src=img/0.png>";
+	**/
 }
 
 function addKit2(str)
 {
-	
-	data = Array( str, data.brand.value, data.item.value, data.model.value, data.date.value, userID, 'KIT');
- 	addData(data, "kit");
-	
+	data = Array( str, data.brand.value, data.item.value, data.model.value, data.date.value, userID);
+ 	addData(data,"kit");
     kitSearch('');
-	
 }
-    
+ 
+
 function addToTable(response) 
 
 {

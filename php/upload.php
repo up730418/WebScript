@@ -1,5 +1,5 @@
 <?php
-
+// Adapted from a w3c tutorial
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -12,65 +12,64 @@ $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 $newFileName;
-//$newFileName = $target_dir . $fileNum . "." . pathinfo($target_file,PATHINFO_EXTENSION);
-
-// Taken from a w3c tutorial
-
-// Check if image file is a actual image or fake image
-
-    $check = getimagesize($_FILES["file"]["tmp_name"]);
-    if($check !== false) {
-       // echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        //echo "File is not an image.";
-        $uploadOk = 0;
-    }
 
 
-// Check if file already exists and generate a new unique name 
-if (file_exists($target_file)) {
-    //echo "Sorry, file already exists. A new name will be generated";
-	$newFileName = $target_dir . rand(0, 9999999) . "." . pathinfo($target_file,PATHINFO_EXTENSION);
-	//if the new file name is generated and already exists this will run untill it has found a unique one
-	while(file_exists($newFileName) )
+// checks if the file is present and due to server limitations 
+// if the file is over 2mb the upload will fail
+
+if (!file_exists($_FILES['file']['tmp_name'])) {
+    $error =  "File upload failed. Please upload a file less than 2mb.";
+	echo($error);
+	http_response_code(400);
+	exit();
+	
+	
+}
+
+// generate a new unique name for the file
+// limits to only 999,999,999 can be uploaded to
+// the server otherwise an infinate loop will be reached
+
+$newFileName = $target_dir . rand(0, 999999999) . "." . pathinfo($target_file,PATHINFO_EXTENSION);
+
+	while(file_exists($newFileName))
 	{
-		$newFileName = $target_dir . rand(0, 9999999) . "." . pathinfo($target_file,PATHINFO_EXTENSION);
+		$newFileName = $target_dir . rand(0, 999999999) . "." . pathinfo($target_file,PATHINFO_EXTENSION);
 	}
-}
-else{
-	$newFileName = $target_file;
-}
 
-// Check file size
-//if ($_FILES["file"]["size"] > 500000) {
-//    //echo "Sorry, your file is too large.";
-//    $uploadOk = 0;
-//}
 
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+// Only allow standard image formats to be used 
+if($imageFileType != "jpg" && $imageFileType != "JPG" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) 
+{
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br>";
     $uploadOk = 0;
 }
 
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    //echo "Sorry, your file was not uploaded.";
+// Check if all check are ok if not send an error response which will 
+// allow it to be handled by fileUploader.js
+if ($uploadOk == 0) 
+{
+	http_response_code(400);
 
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], $newFileName)) {
-        //echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-    } else {
-       // echo "Sorry, there was an error uploading your file.";
-    }
+} 
+
+// Upload the file
+else 
+{	// if it works then add it to the database and return the address and id to the handler
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], $newFileName)) 
+	{
+      	$insert = "Insert into Image (url) values ('$newFileName')";
+		$dbh->query($insert);
+		$recordID = $dbh ->lastInsertId();
+		echo $newFileName ." ". $recordID;
+    } 
 	
-	$insert = "Insert into Image (url) values ('$newFileName')";
-	$dbh->query($insert);
-	$recordID = $dbh ->lastInsertId();
-	echo $recordID;
-
+	// if there was an unexpected error display message
+	else 
+	{
+        echo "Sorry, there was an error uploading your file.<br>";
+		http_response_code(400);
+    }
 }
 ?>
