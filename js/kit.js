@@ -16,13 +16,7 @@ function kitSearch(str)
     result(str, addToTable);    
 }
 
-
-function loadFile(e)
-{
-	fileHandler(e.srcElement.files);
-}
-
-
+// this and the other one need to be compacted into one process
 function addKit()
 {
      data = document.getElementById("inputs");  

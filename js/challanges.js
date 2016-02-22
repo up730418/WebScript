@@ -5,14 +5,15 @@ userID = userID[1];
 function myChallangeSearch(str)
 {
     //str.toString();
-    str = "select * from Challange where concat(name,date_added,description,image) like '%" + str + "%' and userID =" + userID;
-    result(str, addToTable);    
+    str = "select id, userID, name, date_added, description, url , likes from Challange join Image on Challange.image = Image.imageID where concat(name,date_added,description,image) like '%" + str + "%' and userID =" + userID;
+    
+	result(str, addToTable);    
 }
 
 function popularChallangeSearch(str)
 {
     //str.toString();
-    str = "select * from Challange where concat(name,date_added,description,image) like '%" + str + "%' order by likes desc limit 10;";
+    str = "select id, userID, name, date_added, description, url , likes from Challange join Image on Challange.image = Image.imageID where concat(name,date_added,description,image) like '%" + str + "%' order by likes desc limit 10;";
     result(str, addToTable2);    
 }
 
@@ -20,7 +21,7 @@ function addChallange()
 {
     var data = document.getElementById("inputs");
     
-    data = Array(userID, data.name.value, data.date.value, data.description.value, data.image.value, 'CHALLANGE');
+    data = Array(userID, data.name.value, data.date.value, data.description.value,getimgId());
 	
 	addData(data, "challange");
 	

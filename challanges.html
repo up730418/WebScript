@@ -8,6 +8,7 @@
         <meta name="description" content="The place Divers go to meet"/>
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
+		<script src="js/fileUpload.js"> </script>
         <script src="js/search.js"> </script>
 		<script src="js/addData.js"> </script>
         <script src="js/challanges.js"> </script>
@@ -36,9 +37,10 @@
             
 
         <form id="inputs">
+			<div id="imgUpload" > </div>
+			<input type="file" name="image" placeholder="Image" onchange="loadFile(event)"> 
            <input type="text" name="name" placeholder="Name">
-            <input type="date" name="date" placeholder="Date Started">
-            <input type="text" name="image" placeholder="Image">            
+            <input type="date" name="date" placeholder="Date Started">           
             <textarea type="text" name="description" placeholder="Description" cols="40" rows="5"> </textarea>
             <input type="button" onclick="addChallange()" value="Submit" > 
         </form>

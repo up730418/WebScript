@@ -5,13 +5,16 @@ userID = userID[1];
 
 console.log(userID);
 
+// Used for getting all data needed on the page
 function pageSearch()
 {
-    str = "select * from Challange where id = " + id;
+    str = "select id, userID, name, date_added, description, url , likes from Challange join Image on Challange.image = Image.imageID where id = " + id;
     result(str, createPage);
     
 }
 
+
+// Displays comments related to the page
 function commentGather(str)
 {
 	//str= "select Comment.id, comment, narc, User.username, Image.url  from Comment, locationComments  join User on User.id = Comment.userID join Image on User.picture = Image.imageID where locationComments.locationID =" + id +" and locationComments.commentID = Comment.id";
@@ -21,7 +24,7 @@ function commentGather(str)
     
 }
 
-
+// adds the data to the elements on the page 
 function createPage(response)
 {
     var data = response;
@@ -45,7 +48,7 @@ function createPage(response)
     
 }
 
-
+// likes a record
 function likeRecord(id)
 {
     var like = "update Challange set likes = likes %2B 1 where id =" + id + ";";
@@ -65,6 +68,6 @@ function addComment()
 	addData(post, "chComment");
 	commentGather('');
 }
-console.log("HELLO");
+//console.log("HELLO");
 window.onload = commentGather('');
 window.onload = pageSearch();

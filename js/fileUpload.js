@@ -67,6 +67,7 @@ function errorHandler(str)
 }
 
 // When this is called it will call the upload process 
+// could be used to handle multiple files in the future
 function fileHandler(files)
 {		
 	//files = (e.dataTransfer.files);
@@ -75,8 +76,6 @@ function fileHandler(files)
 	
 	upload(files[0]);
 	//imageDisplay(files[0].name);
-	
-
 }
 
 // Used to display an image within a div
@@ -92,6 +91,13 @@ function getimgId()
 {
 	return imgID;
 }
+
+// called when the chose file button is pressed on the page
+function loadFile(e)
+{
+	fileHandler(e.srcElement.files);
+}
+
 
 // Event listeners to discover when a file is being passed to the browser.
 window.addEventListener("dragover",
