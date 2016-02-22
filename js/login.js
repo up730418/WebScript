@@ -12,25 +12,25 @@ function logIn()
     result(str, completeLogIn);
 }
 
-function completeLogIn(foo)
+function completeLogIn(ID)
     {
-        var test = document.getElementById("post");
+        var errormsg = document.getElementById("post");
         
         
-        if(foo == 0)
+        if(ID == 0)
             {
-                test.innerHTML = "error unknown user";
+                errormsg.innerHTML = "error unknown user";
                
             }
         
         else
         {
-           test.innerHTML =  "hello" + foo;
-            foo = foo.replace("<br>", '');
-            foo = foo.replace("****", '');
-            foo = foo.split('"');
+          
+            ID = ID.replace("<br>", '');
+            ID = ID.replace("****", '');
+            ID = ID.split('"');
             
-            document.cookie = "userID=" +foo[1];
+            document.cookie = "userID=" +ID[1];
             window.location.href = "home.html";
         }
         
@@ -39,7 +39,7 @@ function completeLogIn(foo)
 
 function status()
 {
-	console.log("harow");
+	
 	 if (userID === undefined)
        {
 		 

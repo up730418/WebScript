@@ -16,8 +16,6 @@ function logOut()
 {
 	document.cookie = 'userID' + '=; expires= Sat, 01 Jan 2000 00:00:01 GMT;';
 	
-	console.log("deleted");
-	
 	window.location.href = "login.html";
 }
 
