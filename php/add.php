@@ -40,6 +40,11 @@ if(isset($_GET['chComment']))
    addChComment($json, $dbh);
 }
 
+if(isset($_GET['site']))
+{
+	$json = $_GET['site'];
+	addSite($json, $dbh);
+}
 
 else{}
 
@@ -76,6 +81,17 @@ Function addComment($json, $db)
     $db->query($ins);    
 }
 
+
+Function addChallange($json, $db)
+{
+    $array=split(',', $json);
+
+    $ins =("insert into Challange (userID, name, date_added, description, image, likes) values ('$array[0]', '$array[1]', '$array[2]', '$array[3]',
+                 '$array[4]',0);") or die(print_r($dbh->errorInfo(), true));
+    
+    $db->query($ins);    
+}
+
 Function addChComment($json, $db)
 {
 	$array=split(',', $json);
@@ -87,18 +103,35 @@ Function addChComment($json, $db)
 	
 	$commentID = $db ->lastInsertId();
 	
-	$ins2 = ("insert into locationComments values('$array[3]','$commentID');") or die(print_r($dbh->errorInfo(), true));
+	$ins2 = ("insert into challangeComments values('$array[3]','$commentID');") or die(print_r($dbh->errorInfo(), true));
 	 $db->query($ins2);
 }
 
-Function addChallange($json, $db)
+Function addSite($json, $db)
 {
-    $array=split(',', $json);
 
-    $ins =("insert into Challange (userID, name, date_added, description, image, likes) values ('$array[0]', '$array[1]', '$array[2]', '$array[3]',
-                 '$array[4]',0);") or die(print_r($dbh->errorInfo(), true));
-    
-    $db->query($ins);    
+	$array = split(',', $json);
+
+	$ins = ("insert into diveLocation (userID, name, location, description, image, likes) values ('$array[0]', '$array[1]', '$array[2]', '$array[3]',
+				'$array[4]',0);") or die(print_r($dbh->errorInfo(), true));
+	
+	$db->query($ins);
+
+}
+
+Function addSiteComment($json, $db)
+{
+	$array = split(',', $json);
+	$ins =("insert into Comment (userID, comment, narc) 
+        values ('$array[0]', '$array[1]', '$array[2]');") or die(print_r($dbh->errorInfo(), true));
+
+    $db->query($ins);
+	
+	$commentID = $db ->lastInsertId();
+	
+	$ins2 = ("insert into locationComments values('$array[3]','$commentID');") or die(print_r($dbh->errorInfo(), true));
+	
+	$db->query($ins2);
 }
 
 ?>

@@ -5,13 +5,6 @@ var ord = 100;
 var name;
 var pic;
 
-function checkLogin()
-{
-    if (document.cookie.indexOf("userID") === null)
-       {
-         window.location.href = "login.html";
-        }
-}
 
 function commentSearch(str)
 {
@@ -41,5 +34,4 @@ function deleteRecord(id)
     
 }
 
-window.onload = checkLogin();
 window.onload = commentSearch('');

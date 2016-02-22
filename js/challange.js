@@ -18,7 +18,7 @@ function pageSearch()
 function commentGather(str)
 {
 	//str= "select Comment.id, comment, narc, User.username, Image.url  from Comment, locationComments  join User on User.id = Comment.userID join Image on User.picture = Image.imageID where locationComments.locationID =" + id +" and locationComments.commentID = Comment.id";
-    str = "select Comment.id, comment, narc, User.username, Image.url  from Comment join locationComments on  locationComments.locationID = " + id +" and locationComments.commentID = Comment.id join User on User.id = Comment.userID join Image on User.picture = Image.imageID order by Comment.id desc;";
+    str = "select Comment.id, comment, narc, User.username, Image.url  from Comment join challangeComments on  challangeComments.locationID = " + id +" and challangeComments.commentID = Comment.id join User on User.id = Comment.userID join Image on User.picture = Image.imageID order by Comment.id desc;";
     getDiv("comments");
     result(str, displayComments);
     
@@ -37,12 +37,11 @@ function createPage(response)
            {
                var column = row[i].split("****");
                var id = column[0].split('"');
-               var tb = "Kit";
             name.innerHTML = column[2];
             image.innerHTML = "<img src="+column[5]+">";
             description.innerHTML = column[4];
-            likes.innerHTML = "<input type='button' value='Likes = "+column[6]+"' onclick='likeRecord(" 
-                        + id[1] +")' > </input>";
+            likes.innerHTML = "<input type='button' value='Likes = "+column[6]+"' onclick='likeRecord(" +
+                         id[1] +")' > </input>";
                
            }
     

@@ -21,7 +21,7 @@ function addChallange()
 {
     var data = document.getElementById("inputs");
     
-    data = Array(userID, data.name.value, data.date.value, data.description.value,getimgId());
+    data = Array(userID, data.name.value, data.date.value, data.description.value, getimgId());
 	
 	addData(data, "challange");
 	

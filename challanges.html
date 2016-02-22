@@ -8,6 +8,7 @@
         <meta name="description" content="The place Divers go to meet"/>
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
+		<script src="js/checkLogin.js"> </script>	
 		<script src="js/fileUpload.js"> </script>
         <script src="js/search.js"> </script>
 		<script src="js/addData.js"> </script>
@@ -23,11 +24,12 @@
         
         <!--<img src="logo.jpg" >-->
         <input type="text" name="test" placeholder="Search" onkeyup="popularChallangeSearch(this.value)">
+		<button id="topbtn" onclick="window.location='home.html';"> Home </button>
         <button id="topbtn" onclick="window.location='diveLogs.html';"> Logs</button>
         <button id="topbtn" onclick="window.location='sites.html';"> Dive Sites</button>
         <button id="topbtn" onclick="window.location='kit.html';"> Kit</button>
         <button id="topbtn" onclick="window.location='challanges.html';"> Challanges </button>
-        <button id="topbtn" onclick="window.location='home.html';"> Log Out</button>
+        <button id="topbtn" onclick="logOut()"> Log Out</button>
         
         
     </div>

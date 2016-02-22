@@ -4,6 +4,7 @@ userID = userID[1];
 
 var locationTable;
 var locationForm;
+var response;
 
 
 
@@ -20,14 +21,15 @@ function locationSearch(str)
 
 function topLocations()
 {
- var str = "select * from diveLocation order by likes desc limit 20;";
-    result(str, displayData);  
+ var str = "Select url, name, location, id from diveLocation join Image on diveLocation.image = Image.imageID order by likes desc limit 20;";
+
+	result(str, displayData);  
     
 }
 
 function recentlyAdded()
 {
-    var str = "select * from diveLocation order by id desc limit 20;";
+    var str = "Select url, name, location, id from diveLocation join Image on diveLocation.image = Image.imageID  order by id desc limit 20;";
     result(str, displayData);  
     
 }
@@ -36,7 +38,7 @@ function recentlyAdded()
 function allLocations()
 {
     
-    var str = "select * from diveLocation;";
+    var str = "Select url, name, location, id from diveLocation join Image on diveLocation.image = Image.imageID;";
     result(str, displayData);  
     
 }
@@ -49,29 +51,39 @@ function showAddLocation()
 	locationForm.style.display = "block"; // ensures input form is shown and results are hidden
     
 }
+
 function addLocation()
 {
+	console.log("addloc");
+    var data = document.getElementById("inputs");
 	
-
-
+    
+    data = Array(userID, data.name.value, data.location.value, data.description.value, getimgId());
+	
+	addData(data, "site");
+	
+	
+	response.innerHTML = "<p> Site successfully added </p>";
+	
 }
 
 function displayData(response)
 {
+
 	locationTable.style.display="block";
 	locationForm.style.display = "none"; // ensures input form is hidden and results are displayed
     var data = response;
     var table = document.getElementById("locationResults");
     table.innerHTML = "<tr><th>Image</th> <th>Name</th> <th>Location</th> <th>View</th> </tr>";
-    var row = data.split('<br>');
+    var row = data.split('<br>"');
     for(var i = 1; i <= row.length; i++) 
            {
              var column = row[i].split("****");
-               var id = column[0].split('"');
-                table.innerHTML +=  "<td id=kitImage> <img src= " +  column[5] + ">" + "</td>" +
-						" <td>" + column[2] + "</td>" + "<td>" + column[3] + "</td>" + 
+  
+                table.innerHTML +=  "<td id=kitImage> <img src= " +  column[0] + ">" + "</td>" +
+						" <td>" + column[1] + "</td>" + "<td>" + column[2] + "</td>" + 
                          "<td> <a id='view'  href='site.html?" +
-                         id[1] +"'>View Location </a> </td>";
+                         column[3] +"'>View Location </a> </td>";
 		   }
 
 }
@@ -81,6 +93,7 @@ window.onload =function()
 {
 	
  	locationTable = document.getElementById("locationResults");
-	locationForm = document.getElementById("locationInput");
+	locationForm = document.getElementById("inputs");
+	response = document.getElementById("response");
 	topLocations();
 };

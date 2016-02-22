@@ -65,6 +65,11 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         image varchar(100),
         likes int(10)
         );");
+	
+$challangeComment = ("CREATE TABLE IF NOT EXISTS challangeComments (
+       	challangeID int,
+        commentID int
+        );");
 
     // SQL querry for creating the dive Location table
     $diveLocation = ("CREATE TABLE IF NOT EXISTS diveLocation (
@@ -119,6 +124,7 @@ try
     $dbh->exec($user);
     $dbh->exec($comment);
     $dbh->exec($challange);
+	$dbh->exec($challangeComment);
     $dbh->exec($diveLocation);
 	$dbh->exec($locationComment);
 	$dbh->exec($image);

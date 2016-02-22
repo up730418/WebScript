@@ -1,3 +1,7 @@
+var cookieValue = document.cookie;
+var userID = cookieValue.split("=");
+userID = userID[1];
+
 function logIn()
 {
     var credentials = document.getElementById("inputs");
@@ -33,3 +37,18 @@ function completeLogIn(foo)
         console.log(document.cookie);
     }
 
+function status()
+{
+	console.log("harow");
+	 if (userID === undefined)
+       {
+		 
+        }
+	else{
+		console.log("log in fool");  
+         window.location.href = "home.html";
+	}
+	
+}
+
+status();
