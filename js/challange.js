@@ -8,8 +8,8 @@ console.log(userID);
 // Used for getting all data needed on the page
 function pageSearch()
 {
-    str = "select id, userID, name, date_added, description, url , likes from Challange join Image on Challange.image = Image.imageID where id = " + id;
-    result(str, createPage);
+    
+    result( id, "challange", createPage);
     
 }
 
@@ -18,9 +18,9 @@ function pageSearch()
 function commentGather(str)
 {
 	//str= "select Comment.id, comment, narc, User.username, Image.url  from Comment, locationComments  join User on User.id = Comment.userID join Image on User.picture = Image.imageID where locationComments.locationID =" + id +" and locationComments.commentID = Comment.id";
-    str = "select Comment.id, comment, narc, User.username, Image.url  from Comment join challangeComments on  challangeComments.challangeID = " + id +" and challangeComments.commentID = Comment.id join User on User.id = Comment.userID join Image on User.picture = Image.imageID order by Comment.id desc;";
+    
     getDiv("comments");
-    result(str, displayComments);
+    result(id, "challangeCom", displayComments);
     
 }
 

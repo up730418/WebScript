@@ -5,10 +5,9 @@ userID = userID[1];
 
 function logSearch(str)
 {
-    str = "select * from Logs where concat(diveNo, date, depth, timeIn" + 
-        ", duration, visibility, PG, location, buddy, comments, diveProfile) like '%" + 
-        str + "%' and userID =" + userID + " order by diveNo";
-    result(str, addToTable);    
+    str = Array(str, userID);
+				
+    result(str, "logSearch",  addToTable);    
 }
 
 

@@ -9,9 +9,9 @@ var pic;
 function commentSearch(str)
 {
     //str.toString();
-    str = "select Comment.id, comment, narc, User.username, Image.url  from Comment join User on User.id = Comment.userID join Image on User.picture = Image.imageID where comment like '%" + str +"%' order by Comment.id";
+   
     getDiv("post");
-    result(str, displayComments);    
+    result(str, "comments", displayComments);    
 }
 
 function newPost()

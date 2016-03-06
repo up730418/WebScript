@@ -11,9 +11,8 @@ var files;
 	
 function kitSearch(str)
 {
-    //str.toString();
-    str = "select id, Image.url, brand, model, item, date,userID from Kit join Image on Kit.image = Image.imageID where concat(image,brand,model,item,date) like '%" + str + "%' and userID =" + userID;
-    result(str, addToTable);    
+    data = Array(str,  userID);
+    result(data, "kit", addToTable);    
 }
 
 // this and the other one need to be compacted into one process

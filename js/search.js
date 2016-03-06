@@ -1,4 +1,4 @@
-function result(str,  process1) {
+function result(data, type, process1) {
     
     
     var xhr = new XMLHttpRequest();
@@ -13,7 +13,11 @@ function result(str,  process1) {
                 
             }
     }
-        xhr.open("GET", "php/dbSearch.php?querry="+str, true);
+        xhr.open("GET", "php/dbSearch.php?data=" + data + "&type=" + type, true);
+		
+		xhr.setRequestHeader("Content-type", "text/html");
+	
+	
         xhr.send();
     
 }

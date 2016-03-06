@@ -4,54 +4,44 @@ userID = userID[1];
 
 var locationTable;
 var locationForm;
-var response;
+var feedBack;
 
 
 
-
+//Used by search box to search through all locations to find a match to the input string
 function locationSearch(str)
-{
-    //str.toString();
-    str = "select * from Kit where concat(image,brand,model,item,date) like '%" + str + "%' and userID =" + userID;
-    result(str, addToTable);    
+{  
+    result(str, "locationSearch", displayData);    
 }
 
-
-
-
+//Collects the data of the top 20 locations based on likes
 function topLocations()
 {
- var str = "Select url, name, location, id from diveLocation join Image on diveLocation.image = Image.imageID order by likes desc limit 20;";
-
-	result(str, displayData);  
-    
+	result("", "topLocation", displayData);     
 }
 
+//Collects the 20 most recent locations added
 function recentlyAdded()
 {
-    var str = "Select url, name, location, id from diveLocation join Image on diveLocation.image = Image.imageID  order by id desc limit 20;";
-    result(str, displayData);  
-    
+    result("", "recentAddLocation", displayData);   
 }
 
-
+// shows all locations stored on the database
 function allLocations()
 {
     
-    var str = "Select url, name, location, id from diveLocation join Image on diveLocation.image = Image.imageID;";
-    result(str, displayData);  
-    
+    result("", "allLocation", displayData);  
 }
 
-
+// displays the input boxes and hides all other data
 function showAddLocation()
 {
 
 	locationTable.style.display="none";
 	locationForm.style.display = "block"; // ensures input form is shown and results are hidden
-    
 }
 
+// Posts the data put into the form to the database
 function addLocation()
 {
 	console.log("addloc");
@@ -63,16 +53,19 @@ function addLocation()
 	addData(data, "site");
 	
 	
-	response.innerHTML = "<p> Site successfully added </p>";
+	feedBack.innerHTML = "<p> Site successfully added </p>";
 	
 }
 
+
+// Gets the response from the database and puts it into the table 
 function displayData(response)
 {
 
 	locationTable.style.display="block";
 	locationForm.style.display = "none"; // ensures input form is hidden and results are displayed
-    var data = response;
+    feedBack.innerHTML = "";
+	var data = response;
     var table = document.getElementById("locationResults");
     table.innerHTML = "<tr><th>Image</th> <th>Name</th> <th>Location</th> <th>View</th> </tr>";
     var row = data.split('<br>"');
@@ -94,6 +87,6 @@ window.onload =function()
 	
  	locationTable = document.getElementById("locationResults");
 	locationForm = document.getElementById("inputs");
-	response = document.getElementById("response");
+	feedBack = document.getElementById("response");
 	topLocations();
 };

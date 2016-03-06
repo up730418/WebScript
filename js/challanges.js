@@ -5,16 +5,14 @@ userID = userID[1];
 function myChallangeSearch(str)
 {
     //str.toString();
-    str = "select id, userID, name, date_added, description, url , likes from Challange join Image on Challange.image = Image.imageID where concat(name,date_added,description,image) like '%" + str + "%' and userID =" + userID;
+    str = Array(str, userID);
     
-	result(str, addToTable);    
+	result(str, "myChall", addToTable);    
 }
 
 function popularChallangeSearch(str)
 {
-    //str.toString();
-    str = "select id, userID, name, date_added, description, url , likes from Challange join Image on Challange.image = Image.imageID where concat(name,date_added,description,image) like '%" + str + "%' order by likes desc limit 10;";
-    result(str, addToTable2);    
+     result(str, "popChall", addToTable2);    
 }
 
 function addChallange()
