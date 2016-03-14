@@ -22,7 +22,7 @@ function displayComments(response)
               
              
                 diva.innerHTML ="<img src ='" + column[4]  + "' width='20%'>" +  column[3]   + "<p>" + column[1]  + "</p>" +
-                    "<button onClick='newDiv()'> Comment </button>" + "<button> Share </button>" + "<button> Narc+" +column[2] +" </button>" ;
+                    "<button onclick='newDiv()'> Comment </button>" + "<button> Share </button>" + "<button> Narc+" +column[2] +" </button>" ;
                  //diva.style.order= column[0];
                ord -= 1;
                 diva.style.order = ord;

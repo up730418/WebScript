@@ -137,7 +137,7 @@ function newDiv()
     var diva = document.createElement("diva");
     
     var text = document.getElementById("inputs");
-    diva.innerHTML = "<img src ='logo.jpg' width='20%'>" +  name   + "<p>" + text.test.value  + "</p>" + "<button onClick='newDiv()'> Comment </button>" + "<button> Share </button>" + "<button> Narc </button>" ;
+    diva.innerHTML = "<img src ='logo.jpg' width='20%'>" +  name   + "<p>" + text.test.value  + "</p>" + "<button onclick='newDiv()'> Comment </button>" + "<button> Share </button>" + "<button> Narc </button>" ;
    
     diva.style.order= ord;
     post.appendChild(diva);

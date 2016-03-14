@@ -45,7 +45,7 @@ input[type=radio] {
 #topbar{
     height: 2em;
     background: #4368E8;
-    
+	    
 }
 
 #topbar img{
@@ -58,15 +58,24 @@ input[type=radio] {
     margin-left: 10em;
     border-radius: 1em;  
 	text-align: center;
+	Left: 2px;
 }
 
 #topbar button{
     height: 100%;
     color: white;
     background: #4368E8;
-    margin:0;
+	width: 7em;
+	margin-left: 5px;
+}
+
+#topbar button:hover{
+	background-color:black;
     
-    
+}
+
+#topbar button:before{
+	
 }
 
 
@@ -217,14 +226,21 @@ diva button{
 /** for challanges.html **/
 
 #addChallange{
+	display: block;
     margin-left: 2em;
     margin-right: 2em;
     margin-top: 2em;
     margin-bottom: 2em;
     border: solid;
-    height: 20vh;
-    max-height: 30%;
+    height: 30vh;
+    max-height: 40%;
     overflow-x: auto;
+}
+
+#imgUpload{
+	display: inline;
+	
+	
 }
 
 #addChallange input{
@@ -281,7 +297,6 @@ diva button{
 #challangeName{
     text-transform: uppercase;
     font-size: 4em;
-    border: solid;
     align-content: center;
     text-align: center;
     margin-top: 2vh;
@@ -290,10 +305,13 @@ diva button{
 }
 
 #challangeImages{
+	display: inline;
     margin-left: auto;
     margin-right: auto;
-    width: 6em;
-	height: 20em;
+    max-width: 6em;
+	max-height: 20em;
+	width: auto;
+	height: auto;
     
 }
 
@@ -304,14 +322,14 @@ diva button{
 }
 
 #challangeDescription{
-    margin-top: 2vh;
-    border: solid;
+    margin-top: 4vh;
+
     height: 20vh;
 }
 
 #challangeComments{
     margin-top: 2vh;
-    border: solid;
+
     
     
 }
@@ -319,7 +337,7 @@ diva button{
 /** for sites.html **/
 
 #location{
-    border: solid;
+
     height: 80vh;
     height: 80vh;
 	overflow: auto;
@@ -328,6 +346,14 @@ diva button{
 #locationInput
 {
 	display:none; 
+}
+
+#locationH
+{
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 2em;
+	
 }
 
 

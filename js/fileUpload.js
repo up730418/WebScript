@@ -1,4 +1,4 @@
-var imgID;
+var imgID = Array();
 
 // connects to the php file and sends it the data
 function upload(file) {
@@ -41,8 +41,8 @@ function progress(e)
 {
 	var progresion = parseInt((e.loaded / e.total * 100));
 	
-	var imgdiv = document.getElementById("imgUpload");
-	imgdiv.innerHTML ="<p> Upload Progress: " +  progresion + "%</p>";
+	var message = document.getElementById("message");
+	message.innerHTML ="<p> Upload Progress: " +  progresion + "%</p>";
 }
 
 //if a succesful upload has happend this will be called
@@ -53,17 +53,17 @@ function responseHandler(str)
 {
 	var str2 = str.split(" ");
 	imageDisplay(str2[0]);
-	imgID = str2[1];	
+	imgID.push(str2[1]);	
 	//console.log(str2[1]);
 	
 }
 
-// if the pload fails this is called
+// if the load fails this is called
 // to set the error message
 function errorHandler(str)
 {
-	var imgdiv = document.getElementById("imgUpload");
-	imgdiv.innerHTML = "<p>" + str + "</p>";	
+	var message = document.getElementById("message");
+	message.innerHTML  = "<p>" + str + "</p>";	
 }
 
 // When this is called it will call the upload process 
@@ -71,18 +71,26 @@ function errorHandler(str)
 function fileHandler(files)
 {		
 	//files = (e.dataTransfer.files);
-	console.log(files);
-	console.log(files[0].size)
+	//console.log(files);
+	//console.log(files.length)
 	
-	upload(files[0]);
+	for(var i = 0; i <= (files.length - 1); i++)
+		{
+			upload(files[i]);
+			//console.log(files[i]); // Testing log
+		}
+	
 	//imageDisplay(files[0].name);
 }
 
 // Used to display an image within a div
 function imageDisplay(image)
 {
+		var message = document.getElementById("message");
+			message.innerHTML  = "<p> Image(s) Succefully Uploaded</p>";	
 		var imgdiv = document.getElementById("imgUpload");
-	imgdiv.innerHTML = "<img src=img/"+ image +">";	
+	imgdiv.innerHTML +=  "<img src=img/"+ image +">";	
+	console.log(imgID);
 }
 
 // function for other files to call so they can get  the id of the 

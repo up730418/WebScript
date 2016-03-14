@@ -42,6 +42,11 @@ if($type == 'site')
 	addSite($values, $dbh);
 }
 
+if($type == 'like')
+{
+	like($values, $dbh);
+}
+
 Function addKit($json, $db)
 {
     
@@ -102,7 +107,19 @@ Function addChallange($json, $db)
 	$ins->bindParam(3, $json[2]);
 	$ins->bindParam(4, $json[3]);
 	$ins->bindParam(5, $json[4]);
-    $ins->execute();        
+    $ins->execute();  
+	
+	$challangeID = $db->lastInsertId();
+
+	for($i=4; $i <= count($json) - 1; $i++)
+	{
+		$ins2 = $db->prepare("insert into challangeImage (ChallangeID, ImageID) values (?,?)");
+		$ins2->bindParam(1, $challangeID);
+		$ins2->bindParam(2, $json[$i]);
+		$ins2->execute();
+		
+	}
+
 }
 
 Function addChComment($json, $db)
@@ -157,6 +174,18 @@ Function addSiteComment($json, $db)
 	$ins->bindParam(1, $json[3]); 
 	$ins2->execute(); 
 }
+
+Function like($json, $db)
+{
+
+	$ins = $db->prepare("update $json[0] set likes = likes + 1 where id = $json[1] ;");
+	
+	//$ins->bindParam(1, $json[0]);
+	//$ins->bindParam(2, $json[1]);
+    $ins->execute();  
+
+}
+
 
 ?>
 

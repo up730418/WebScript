@@ -12,7 +12,7 @@ $columns = array('image', 'brand', 'model', 'item', 'date');
         or die(print_r($dbh->errorInfo(), true));
     
     // SQL querry for creating the kit table
-    $kit = ("CREATE TABLE IF NOT EXISTS Kit (
+    $kit = ("CREATE TABLE IF NOT EXISTS droper (
         id    int PRIMARY KEY auto_increment,
         image varchar(100),
         brand varchar(100),
@@ -92,6 +92,11 @@ $challangeComment = ("CREATE TABLE IF NOT EXISTS challangeComments (
         url varchar(100)
         );");
 
+	$challangeimage = ("CREATE TABLE IF NOT EXISTS challangeImage (
+        ChallangeID int,
+        ImageID int
+        );");
+
 
 try{// try to connect to the database if it already exists
 
@@ -128,6 +133,7 @@ try
     $dbh->exec($diveLocation);
 	$dbh->exec($locationComment);
 	$dbh->exec($image);
+	$dbh->exec($challangeimage);
 	echo "Installation succesfully completed";
 }
 

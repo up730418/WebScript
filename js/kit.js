@@ -12,7 +12,7 @@ var files;
 function kitSearch(str)
 {
     data = Array(str,  userID);
-    result(data, "kit", addToTable);    
+    result(data, "kitSearch", addToTable);    
 }
 
 // this and the other one need to be compacted into one process

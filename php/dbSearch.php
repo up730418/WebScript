@@ -13,13 +13,17 @@ $type = $_GET['type'];
 	
 $array = split(',', $data);
 
-if($type == 'kit')
+if($type == 'kitSearch')
 {
 	kitSearch($dbh, $array);
 }
 if($type == 'challange')
 {
 	challangePage($dbh, $array);
+}
+if($type == 'challangeimg')
+{
+	challangeImage($dbh, $array);
 }
 if($type == 'challangeCom')
 {
@@ -57,7 +61,16 @@ if($type == 'allLocation')
 {
 	location($dbh, $array, "", "");
 }
+if($type == 'login')
+{
+	login($dbh, $array);
+}
 
+if($type == 'like')
+{
+	like($dbh, $array);
+}
+	
 
 Function kitSearch($db, $json)
 {
@@ -77,6 +90,14 @@ Function challangePage($db, $json)
 	
 	
 		returnResults($db, $sql);
+}
+
+Function challangeImage($db, $json)
+{
+	$sql = ("select  url from Challange join challangeImage on Challange.id = challangeImage.ChallangeID
+				join Image on challangeImage.ImageID = Image.imageID where id =  24;");
+	
+	returnResults($db, $sql);
 }
 
 
@@ -144,6 +165,17 @@ Function location($db, $json, $order, $data)
 		returnResults($db, $sql);
 }
 
+Function login($db, $json)
+{
+		$sql =("select id from User where username = '$json[0]' and password = '$json[1]'");
+
+   returnResults($db, $sql); 
+}
+
+Function like($db, $json)
+{
+		$sql =("update $json[0] set likes = likes %2B 1 where id = '$json[1]' ;"); 
+}
 
 
 

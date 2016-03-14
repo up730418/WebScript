@@ -10,9 +10,9 @@ function pageSearch()
 {
     
     result( id, "challange", createPage);
+	result( id, "challangeimg", addImages);
     
 }
-
 
 // Displays comments related to the page
 function commentGather(str)
@@ -24,21 +24,24 @@ function commentGather(str)
     
 }
 
+
+
+
 // adds the data to the elements on the page 
 function createPage(response)
 {
     var data = response;
     var name = document.getElementById("challangeName");
     var description = document.getElementById("challangeDescriptionText");
-    var image = document.getElementById("challangeImages");
+   
     var likes = document.getElementById("like");
     var row = data.split('<br>');
-    for(var i = 1; i <= row.length; i++) 
+    for(var i = 1; i <= row.length - 1; i++) 
            {
                var column = row[i].split("****");
                var id = column[0].split('"');
             name.innerHTML = column[2];
-            image.innerHTML = "<img src="+column[5]+">";
+            
             description.innerHTML = column[4];
             likes.innerHTML = "<input type='button' value='Likes = "+column[6]+"' onclick='likeRecord(" +
                          id[1] +")' > </input>";
@@ -47,14 +50,33 @@ function createPage(response)
     
 }
 
+function addImages(response){
+	console.log(response);
+	
+	 var image = document.getElementById("challangeImages");
+	
+	var data = response;
+	var row = data.split('<br>"');
+    for(var i = 1; i <= row.length - 1; i++) 
+			{
+				var column = row[i].split("****");
+				console.log(column[0]);
+				image.innerHTML += "<img src="+column[0]+">";
+			}
+		
+}
+
 // likes a record
 function likeRecord(id)
 {
-    var like = "update Challange set likes = likes %2B 1 where id =" + id + ";";
-    result(like, null);
-    pageSearch();
+    var data = Array("Challange", id);
+    addData(data, "like", pageSearch);
+
+    
+	//pageSearch();
 
 }
+
 
 function addComment()
 {

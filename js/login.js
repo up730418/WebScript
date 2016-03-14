@@ -7,13 +7,16 @@ function logIn()
     var credentials = document.getElementById("inputs");
     var password = credentials.password.value;
     var user = credentials.user.value;
-    var str = "select id from User where username = '" + user + "' and password = '" + password + "'";
-    
-    result(str, completeLogIn);
+    var data = Array(user, password);
+
+    result(data, "login", completeLogIn);
 }
 
+//Checks the value of the returned value and if its > 0 creats a cookie with that number
+// so the user can have personalised results
 function completeLogIn(ID)
     {
+		console.log(ID); // test to see what value is returned from db
         var errormsg = document.getElementById("post");
         
         
@@ -34,7 +37,7 @@ function completeLogIn(ID)
             window.location.href = "home.html";
         }
         
-        console.log(document.cookie);
+        //console.log(document.cookie); // test to see if the cookie is generated
     }
 
 function status()

@@ -4,7 +4,7 @@ userID = userID[1];
 
 function checkLogin()
 {
-	console.log(userID);
+		console.log(userID);
     if (userID === undefined)
        {
 		 console.log("log in fool");  
