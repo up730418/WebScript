@@ -8,7 +8,7 @@
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
 		<script src="js/checkLogin.js"> </script>
-        <script src="js/search.js"> </script>
+        <script src="js/getData.js"> </script>
 		<script src="js/addData.js"> </script>
         <script src="js/comments.js"> </script>
         <script src="js/home.js"> </script> 
@@ -26,8 +26,8 @@
         <button  onclick="window.location='diveLogs.html';"> Logs</button>
         <button  onclick="window.location='sites.html';"> Dive Sites</button>
         <button  onclick="window.location='kit.html';"> Kit</button>
-        <button  onclick="window.location='challanges.html';"> Challanges </button>
-        <button  onclick="logOut()"> Log Out</button>
+        <button  onclick="window.location='challanges.html';"> Challenges </button>
+        <button  onclick="logOut()"> Logout</button>
         
         
         
@@ -36,7 +36,7 @@
     
     <div id="addPost">
             
-        <form id="inputs">
+        <form id="inputs" onsubmit="newPost()">
            <input type="text" name="comment" placeholder="Enter your update">
             <input type="button" onclick="newPost()" value="submit" >
         </form>

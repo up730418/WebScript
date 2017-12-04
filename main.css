@@ -3,8 +3,7 @@ header
 {
     width: 100%;
     display: inline-block;
-    
-    
+
 }
 
 body
@@ -15,36 +14,13 @@ body
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
-    
+	background-color: #fafafa;
 }
 
-
-input[type=radio] + label{
-    
-    background: #f80707;
-    border-radius: 40px;
-    border-color: #f80707;
-    color: white;
-    padding: 1%;
-    
-}
-
-input[type=radio]:checked + label {
-	background: #428bca;
-	color: #fff;
-}
-
-input[type=radio] + label:hover {
-	box-shadow: 0 0.25ex 1em rgba(0,0,0,.1) inset;
-}
-
-input[type=radio] {
-	display: none;
-}
- 
 #topbar{
     height: 2em;
     background: #4368E8;
+	
 	    
 }
 
@@ -67,6 +43,7 @@ input[type=radio] {
     background: #4368E8;
 	width: 7em;
 	margin-left: 5px;
+	border-style: none;
 }
 
 #topbar button:hover{
@@ -78,6 +55,46 @@ input[type=radio] {
 	
 }
 
+[type=button] {
+	
+    color: white;
+    background: #4062d8;
+	margin: 5px;
+	border-style: none;
+	padding: 1em;
+	
+}
+
+[type=text]{
+	margin: 5px;
+}
+
+/** for login.html **/
+
+#login{
+	
+	align-content: center;
+	width: 50%;
+	height: auto;
+	padding: 2em;
+	box-shadow: 7px 7px 5px #646464;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 4em;
+	background-color: #f7f7f7;
+
+}
+
+#loginInput{
+	margin-left: 2em;
+	margin-top: 2em;
+		clear: both;
+}
+
+#accountInput{
+	display: none;
+	margin-top: 2em;
+}
 
 /** for home.html **/
 #addPost{ 
@@ -85,7 +102,8 @@ input[type=radio] {
     margin-top: 2em;
     margin-left: 25%;
     display: inline-block;
-    width: 50%
+    width: 50%;
+	
    
 
 }
@@ -108,15 +126,14 @@ input[type=radio] {
 /** for comments **/
 diva{ 
 margin-left: 25%;
-margin-top: 4px;
+margin-top: 2em;
 width: 50%;
 color: blue;
 border: 5px;
-border-color: black;
-border-style: solid;
+background-color: #f8feff;
 word-wrap: break-word;
 display: block;
-    
+box-shadow: 7px 7px 5px #646464;    
 }
 
 diva image{
@@ -136,16 +153,6 @@ diva button{
     
 }
 
-/**
-#Kit table, th, td{
-    font-size: 1em;
-    color: black;
-    border-collapse:collapse;
-    width: 10%;
-    border: 1px solid #FF523B;
-    
-}
-*/
 #kitImage img{
     height: 3em;
 }
@@ -154,22 +161,28 @@ diva button{
     width: 80%;
     margin-top: 1em;
     margin-bottom: 1em;
-    margin-left: 10%;
-    border: 1px solid black;    
+    margin-left: 10%;  
+	min-height: 10em;
+	box-shadow: 7px 7px 5px #646464;
+	background-color: #f7f7f7;
 }
 
-#addKit input{
-    border-radius: 1em;
+#addKit [type=text], [type=date]{
+    
     margin-left: 2em;
+	border-radius: 1em;
     
 }
 
 
- div[id*=test]
-{
-    color: pink;
-}
 
+#uploadBox p{
+	margin-left: 1em;
+	max-height: 10em;
+	max-width: 10em;
+	font-size: 1.5em;
+	border: 1px dashed black;
+}
 
 #imgUpload img{
 	max-width: 10em;
@@ -180,9 +193,7 @@ diva button{
 
 #diveLogs{
     align-content: center;
-   /* width: 100%;
-    border: 5px solid black;
-    */
+   
 }
 
 #adddLogs input{
@@ -202,39 +213,42 @@ diva button{
     margin: 2%;
     padding-top: 2%;
     text-align: left;
-    width: 10%;
-    
-    
-    
+    width: 10%; 
 }
 
-#addLogs input{
+#addLogs input[type=text],[type=date],[type=time] {
     
     border-radius: 1em;
     margin-left: 2em;
     margin-top: 1em;
     
 }
+#addLogs textarea{
+    margin-top: 2em;
+	border-radius: 1em;
+    
+}
 
 #addLogs{
     margin-top: 2em;
     margin-bottom: 2em;
-    
+	min-height: 12em;
+    box-shadow: 7px 7px 5px #646464; 
+	background-color: #f7f7f7;
     
 }
 
 /** for challanges.html **/
 
 #addChallange{
+	background-color: #f7f7f7;
 	display: block;
     margin-left: 2em;
     margin-right: 2em;
     margin-top: 2em;
     margin-bottom: 2em;
-    border: solid;
-    height: 30vh;
-    max-height: 40%;
-    overflow-x: auto;
+    padding-bottom: 2em;
+	box-shadow: 7px 7px 5px #646464; 
 }
 
 #imgUpload{
@@ -249,6 +263,7 @@ diva button{
 
 #addChallange textarea{
     margin-top: 2em;
+	border-radius: 1em;
     
 }
 
@@ -276,10 +291,11 @@ diva button{
     margin-right: 2em;
     margin-top: 2em;
     margin-bottom: 2em;
-    border: solid;
-    height: 40vh;
+   height: 40vh;
     max-height: 30%;
     overflow-x: auto;
+	box-shadow: 7px 7px 5px #646464; 
+	background-color: #f7f7f7;
 }
 
 #PopularChallanges{
@@ -289,8 +305,22 @@ diva button{
     margin-bottom: 2em;
     height: 40vh;
     max-height: 30%;
-    border: solid; 
     overflow-x: auto;
+	box-shadow: 7px 7px 5px #646464;
+	background-color: #f7f7f7;
+    
+}
+
+#CompletedChallanges{
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    height: 40vh;
+    max-height: 30%;
+    overflow-x: auto;
+	box-shadow: 7px 7px 5px #646464; 
+	background-color: #f7f7f7;
     
 }
 /** for Challange.html **/
@@ -323,15 +353,17 @@ diva button{
 
 #challangeDescription{
     margin-top: 4vh;
-
     height: 20vh;
 }
 
 #challangeComments{
     margin-top: 2vh;
+ 
+}
 
-    
-    
+#challangeStatus{
+	margin-top: 2vh;
+	
 }
 
 /** for sites.html **/
@@ -343,9 +375,18 @@ diva button{
 	overflow: auto;
     
 }
+
+
 #locationInput
 {
 	display:none; 
+	box-shadow: 7px 7px 5px #646464;
+	min-height: 12em;
+	background-color: #f7f7f7;
+}
+
+#locationInput [type=text]{
+		border-radius: 1em;
 }
 
 #locationH
@@ -354,6 +395,52 @@ diva button{
 	text-align: center;
 	font-size: 2em;
 	
+}
+
+/* for site.html */
+
+#siteName{
+    text-transform: uppercase;
+    font-size: 4em;
+    align-content: center;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    
+}
+
+#siteImages{
+	display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 6em;
+	max-height: 20em;
+	width: auto;
+	height: auto;
+    
+}
+
+#siteImages img {
+	
+	max-width: 20em;
+	max-height: 20em;
+}
+
+#siteDescription{
+    margin-top: 4vh;
+
+    height: 20vh;
+}
+
+#siteComments{
+    margin-top: 2vh;
+ 
+}
+
+#siteLocation{
+	
+	margin-top: 4vh;
+    height: 20vh;
 }
 
 

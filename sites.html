@@ -7,11 +7,6 @@
         <meta name="description" content="The place Divers go to meet"/>
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
-		<script src="js/checkLogin.js"> </script>
-        <script src="js/search.js"> </script>
-		<script src="js/fileUpload.js"> </script>
-		<script src="js/addData.js"> </script>
-        <script src="js/sites.js"> </script> 
         
 </head>
     
@@ -26,8 +21,8 @@
         <button  onclick="window.location='diveLogs.html';"> Logs</button>
         <button  onclick="window.location='sites.html';"> Dive Sites</button>
         <button  onclick="window.location='kit.html';"> Kit</button>
-        <button  onclick="window.location='challanges.html';"> Challanges </button>
-        <button  onclick="logOut()"> Log Out</button>
+        <button  onclick="window.location='challanges.html';"> Challenges </button>
+        <button  onclick="logOut()"> Logout</button>
         
         
         
@@ -49,12 +44,16 @@
 		 
 		
 			 
-		<form id="inputs" >
+		<form id="locationInput" onsubmit="" >
+			<div id="uploadBox"> 
+			<p> Drag files onto this page to upload them</p>
+			</div>
+			<div id="message"> </div>
 			<div id="imgUpload" > </div>
-			<input type="File" name="image" placeholder="Image" onchange="loadFile(event)">     
-            <input type="text" name="name" placeholder="Name"> 
-            <input type="text" name="location" placeholder="Location">       
-            <textarea type="text" name="description" placeholder="Description" cols="40" rows="5"> </textarea>
+			 <input type="File" name="image" placeholder="Image" onchange="loadFile(event)">     
+			<p> Location Name: <input type="text" name="name" placeholder="Name" required> </p>
+			<p> Location Address: <input type="text" name="location" placeholder="Location" required> </p>       
+			<p> Location Description: <textarea type="text" name="description" placeholder="Description" cols="40" rows="5" required> </textarea> </p>
             <input type="button" onclick="addLocation()" value="Submit" > 
         </form>
 		 
@@ -66,5 +65,10 @@
     
     
     </body>
+		<script src="js/checkLogin.js"> </script>
+        <script src="js/getData.js"> </script>
+		<script src="js/fileUpload.js"> </script>
+		<script src="js/addData.js"> </script>
+        <script src="js/sites.js"> </script> 
 </html>
 

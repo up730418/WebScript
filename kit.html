@@ -7,11 +7,7 @@
         <meta name="description" content="The place Divers go to meet"/>
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
-		<script src="js/checkLogin.js"> </script>
-        <script src="js/search.js"> </script>
-		<script src="js/fileUpload.js"> </script>
-		<script src="js/addData.js"> </script>
-        <script src="js/kit.js"> </script> 
+
        
         
         
@@ -28,8 +24,8 @@
         <button  onclick="window.location='diveLogs.html';"> Logs</button>
         <button  onclick="window.location='sites.html';"> Dive Sites</button>
         <button  onclick="window.location='kit.html';"> Kit</button>
-        <button  onclick="window.location='challanges.html';"> Challanges </button>
-        <button  onclick="window.location='home.html';"> Log Out</button>
+        <button  onclick="window.location='challanges.html';"> Challenges </button>
+        <button  onclick="window.location='logOut()';"> Logout</button>
         
         
         
@@ -39,13 +35,18 @@
     <div id="addKit">
             
 
-        <form   id="inputs" enctype="multipart/form-data">
-			<div id="imgUpload" > </div>
-           <input type="file" name="image" id="image"  onchange="loadFile(event)">
-            <input type="text" name="brand" placeholder="Brand">
-            <input type="text" name="model" placeholder="Model descrition">
-            <input type="text" name="item" placeholder="Type of item">
-            <input type="date" name="date" placeholder="Date Purchased">
+        <form   id="inputs" onsubmit="" enctype="multipart/form-data">
+			<div id="uploadBox"> 
+			<p> Drag files onto this page to upload them</p>
+			</div>
+			<div id="message"> </div>
+			<div id="imgUpload" ></div>
+			
+           <input type="file" name="image" id="image"  onchange="loadFile(event,1)">
+			<p> Brand: <input type="text" name="brand" placeholder="Brand" required > </p>
+			<p> Model: <input type="text" name="model" placeholder="Model descrition" required > </p>
+			<p> Type: <input type="text" name="item" placeholder="Type of item" required> </p>
+			<p> Date of Purchase: <input type="date" name="date" placeholder="Date Purchased" required> </p>
             
              <input type="button" value="submit" onclick="addKit()"> 
         </form>
@@ -65,10 +66,10 @@
             </tr>
             <tr id="kitList">
                 <td id="kitImage"> <img src="img/logo.jpg"></td>
-                <td>Tank</td>
-                <td>Mares</td>
-                <td>Mares Tank 2</td>
-                <td>10.11.15</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
                 
             
             </tr>
@@ -80,6 +81,12 @@
     </div>
     
     </body>
+	
+		<script src="js/checkLogin.js"> </script>
+        <script src="js/getData.js"> </script>
+		<script src="js/fileUpload.js"> </script>
+		<script src="js/addData.js"> </script>
+        <script src="js/kit.js"> </script> 
 </html>
 
 

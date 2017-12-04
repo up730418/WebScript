@@ -8,7 +8,7 @@
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
 		<script src="js/checkLogin.js"> </script>
-        <script src="js/search.js"> </script>
+        <script src="js/getData.js"> </script>
 		<script src="js/addData.js"> </script>
         <script src="js/logs.js"> </script>
     
@@ -26,8 +26,8 @@
         <button  onclick="window.location='diveLogs.html';"> Logs</button>
         <button  onclick="window.location='sites.html';"> Dive Sites</button>
         <button  onclick="window.location='kit.html';"> Kit</button>
-        <button  onclick="window.location='challanges.html';"> Challanges </button>
-        <button  onclick="logOut()"> Log Out</button>
+        <button  onclick="window.location='challanges.html';"> Challenges </button>
+        <button  onclick="logOut()"> Logout</button>
         
         
         
@@ -37,10 +37,10 @@
     <div id="addLogs">
             
 
-        <form id="inputs">
+        <form id="inputs" onsubmit="">
            <input type="text" name="depth" placeholder="Depth">
-            <input type="date" name="date" placeholder="Date">
-            <input type="time" name="timeIn" placeholder="Time In">
+           Date: <input type="date" name="date" placeholder="Date">
+           Time In:  <input type="time" name="timeIn" placeholder="Time In">
             <input type="text" name="duration" placeholder="Duration in Minutes">
             <input type="text" name="pg" placeholder="Pressure Group">
             <input type="text" name="visibility" placeholder="Visibility">
@@ -48,9 +48,8 @@
             <input type="text" name="kit" placeholder="Kit">
             <input type="text" name="buddy" placeholder="Buddy">
             <input type="text" name="dive_no" placeholder="Dive Number">
-            <input type="text" name="profile" placeholder="Dive Profile">
             
-            <textarea type="text" name="description" placeholder="Description" cols="40" rows="5"> </textarea>
+            Description: <textarea type="text" name="description" placeholder="Description" cols="40" rows="5"> </textarea>
             
             <input type="button" onclick="addLog()" value="Submit" >
             
@@ -79,18 +78,18 @@
             </tr>
             <tr>
                 
-                <td>1</td>
-                <td>20.12.2015</td>
-                <td>20 Meters</td>
-                <td>12:15</td>
-                <td>20 Mins</td>
-                <td>4 Meters </td>
-                <td>N/A</td>
-                <td>Guildy</td>
-                <td>Mask </td>
-                <td>Jhon </td>
-                <td> Went for a bumble round the bus</td>
-                <td id="logImage"> <img src="img/logo.jpg" height="30%" > </td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading.....</td>
+                <td>Loading..... </td>
             </tr>
             
         </table>

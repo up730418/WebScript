@@ -17,13 +17,13 @@
     <div id = "topbar">
         
         <!--<img src="logo.jpg" >-->
-        <input type="text" name="test" placeholder="Search" onkeyup="popularChallangeSearch(this.value)">
+        <input type="text" name="test" placeholder="Search" onkeyup="pageSearch(this.value)">
 		<button  onclick="window.location='home.html';"> Home </button>
         <button  onclick="window.location='diveLogs.html';"> Logs</button>
         <button  onclick="window.location='sites.html';"> Dive Sites</button>
         <button  onclick="window.location='kit.html';"> Kit</button>
-        <button  onclick="window.location='challanges.html';"> Challanges </button>
-        <button  onclick="logOut()"> Log Out</button>
+        <button  onclick="window.location='challanges.html';"> Challenges </button>
+        <button  onclick="logOut()"> Logout</button>
         
         
     </div>
@@ -32,21 +32,26 @@
     <div id="addChallange">
             
 
-        <form id="inputs">
+        <form id="inputs" onsubmit="">
+			<div id="uploadBox"> 
+				<p> Drag files onto this page to upload them</p>
+			</div>
 			<div id="message"> </div>
 			<div id="imgUpload"> </div>
-			<input type="file" name="image" placeholder="Image" onchange="loadFile(event)"> 
-           <input type="text" name="name" placeholder="Name">
-            <input type="date" name="date" placeholder="Date Started">           
-            <textarea type="text" name="description" placeholder="Description" cols="40" rows="5"> </textarea>
-            <input type="button" onclick="addChallange()" value="Submit" > 
+			<input type="file" name="image" placeholder="Image" onchange="loadFile(event,5)"> 
+			<p> Challange Name: <input type="text" name="name" placeholder="Name" required> </p>
+			<p> Start Date:<input type="date" name="date" placeholder="Date Started" required> </p>          
+			<p> Challange Description: <textarea type="text" name="description" placeholder="Description" cols="40" rows="5" required> </textarea> </p>
+            <input type="button"  value="Submit"  onclick="addChallange()" > 
         </form>
         
     </div>
     
+	<h3> My Challenges </h3>
+	
     <div id="myChallanges">
         
-        <h3> My Challanges </h3>
+        
         
         <table id="myChallangesTable">
             <tr>
@@ -56,18 +61,18 @@
                 <th>images</th>
             </tr>
             <tr>
-                <td>challange 1</td>
-                <td>20.12.2015</td>
-                <td>dive and survive</td>
-                <td id="myChallangesImage"> <img src="img/logo.jpg" height="30%" > </td>
-                <td> <input type="button" onclick="like()" value="like"></input> </td>
+                <td>Loding....</td>
+                <td>Loding....</td>
+                <td>Loding....</td>
+                <td> Loding....</td>
+                <td> Loding....</td>
             </tr>  
         </table>
     </div>
     
-    <div id="PopularChallanges">
-        
-        <h3> Popular Challanges </h3>
+    <h3> Popular Challenges </h3>
+	
+	<div id="PopularChallanges">
         
         <table id="PopularChallangesTable">
                       <tr>
@@ -79,22 +84,48 @@
             </tr>
             <tr>
                 
-                <td>challange 1</td>
-                <td>20.12.2015</td>
-                <td>dive and survive</td>
-                <td id="PopularChallangesImage"> <img src="img/logo.jpg" height="30%" > </td>
-                <td> <input type="button" onclick="like()" value="like"></input> </td>
+                <td>Loding....</td>
+                <td>Loding....</td>
+                <td>Loding....</td>
+                <td> Loding....</td>
+                <td> Loding....</td>
             </tr>
             
         </table>
         
     </div>
+		
+	<h3> Completed Challenges </h3>
+	    
+	<div id="CompletedChallanges">
+        
+        
+        
+        <table id="CompletedChallangesTable">
+                      <tr>
+                <th>Name</th>
+                <th>Date Added</th>
+                <th>Description</th>
+                <th>images</th>
+                <th>like</th>
+            </tr>
+            <tr>
+                <td>Loding....</td>
+                <td>Loding....</td>
+                <td>Loding....</td>
+                <td> Loding....</td>
+                <td> Loding....</td>
+            </tr>
+            
+        </table>
+        
+    </div>	
     
     </body>
 
 		<script src="js/checkLogin.js"> </script>	
 		<script src="js/fileUpload.js"> </script>
-        <script src="js/search.js"> </script>
+        <script src="js/getData.js"> </script>
 		<script src="js/addData.js"> </script>
         <script src="js/challanges.js"> </script>
 </html>

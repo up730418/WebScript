@@ -7,9 +7,7 @@
         <meta name="description" content="The place Divers go to meet"/>
         <meta name="author" content="up730418"/>
         <link rel="stylesheet" href="main.css"/>
-        <script src="js/search.js"> </script>
-		<script src="js/addData.js"> </script>
-        <script src="js/login.js"> </script> 
+
         
 </head>
     
@@ -19,31 +17,51 @@
     <div id = "topbar">
         
         <!--<img src="logo.jpg" >-->
-        <input type="text" name=test placeholder="Search">
+        <input type="text" name="test" placeholder="Search">
 		<button  onclick="window.location='home.html';"> Home </button>
         <button  onclick="window.location='diveLogs.html';"> Logs</button>
         <button  onclick="window.location='sites.html';"> Dive Sites</button>
         <button  onclick="window.location='kit.html';"> Kit</button>
-        <button  onclick="logOut()"> Log Out</button>
+        <button  onclick="logOut()"> Logout</button>
         
         
     </div>
     
     
-    <div id="Login">
-            
+    <div id="login">
+           
 
-        <form id="inputs">
+        <form id="loginInput" onsubmit="logIn()">
            <input type="text" name= "user" placeholder="Enter Username">
             <input type="text" name= "password" placeholder="Enter Password">
             <input type="button" onclick="logIn()" value="submit" >
+			<input type="button" onclick="showAccount()" value="create Account">
         </form>
-    </div>
+   
     
-    <div id= "post">
-            
-    </div>
+
+		<form id="accountInput" enctype="multipart/form-data">
+			<div id="uploadBox"> 
+			<p> Drag files onto this page to upload them</p>
+			</div>
+			<div id="message"> </div>
+			<div id="imgUpload" ></div>
+           <input type="file" name="image" id="image"  onchange="loadFile(event,1)">
+			<input type="email" name= "email" placeholder="Email">
+            <input type="text" name= "user" placeholder="Enter Username">
+            <input type="text" name= "password" placeholder="Enter Password">
+		    <input type="text" name= "rePassword" placeholder="Re-Type Password">
+			<input type="button" onclick="createAccount()" value="submit" >
+			<input type="button" onclick="cancel()" value="Cancel">
+		</form>
         
+	<div id="errormessage"></div>
+		
+	</div>
     </body>
-    
+	
+        <script src="js/getData.js"> </script>
+		<script src="js/addData.js"> </script>
+        <script src="js/login.js"> </script> 
+		<script src="js/fileUpload.js"></script>
     </html>
